@@ -46,7 +46,20 @@ To list all dynamic dependencies, use =ldd <binary>=
 See also: [[https://www.eyrie.org/~eagle/notes/rpath.html]].
 * Documentation
 ** Python
+*** Sphinx
+**** Basic documentation generation
 - http://www.sphinx-doc.org/en/master/
+#+BEGIN_SRC bash
+pip install -U Sphinx
+sphinx-apidoc -F -o docs
+cd docs
+make html
+#+END_SRC
+**** Publishing on gh-pages
+Two options:
+- =docs/= folder
+- =gh-pages= branch
+https://help.github.com/articles/creating-project-pages-using-the-command-line/
 ** C/C++
 - http://www.sphinx-doc.org/en/master/
 - =mkdocs=
