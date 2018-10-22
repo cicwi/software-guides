@@ -1,0 +1,55 @@
+#+TITLE: Software Guidlines (CWI CI Group)
+#+AUTHOR: Jan-Willem Buurlage, Allard Hendriksen
+
+* Coding standards
+** Python
+*** PEP8
+*** [[https://github.com/google/yapf][yapf]]
+** C/C++
+*** =clang-format=
+*** =clang-tidy=
+*** Sensible compile flags
+**** =-Wall=
+**** =-Werror=
+**** =-Wfatal=
+**** ...
+* Distributing software
+** Python
+- =distutil=
+- How to define and distribute a conda package
+** C/C++
+**** Modern CMake
+***** C++ Weekly, [[https://www.youtube.com/watch?v=HPMvU64RUTY][Intro to CMake]]
+***** [[https://llvm.org/docs/CMakePrimer.html][CMakePrimer (LLVM)]] 
+***** [[https://www.youtube.com/watch?v=eC9-iRN2b04][CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”]]
+***** [[https://www.youtube.com/watch?v=bsXLMQ6WgIk][C++Now 2017: Daniel Pfeifer “Effective CMake"]]
+***** [[https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html][Dependency management CMake/Git]]
+**** Dynamically linked dependencies
+Three places that a binary looks for shared dependencies
+1. =LD_LIBRARY_PATH=
+2. =rpath= encoded in binary
+3. system default paths
+
+Danger of (1) is that it overrides the specific dependencies of all binaries run.
+
+For shared systems, or non-root users, (3) can be a problem.
+
+For 2 you proceed as follows:
+- set =LD_RUN_PATH= to something hardcoded
+- use =-R= in gcc
+
+To check the =RPATH= in a binary on Linux, use =readelf -d <binary>=.
+
+To list all dynamic dependencies, use =ldd <binary>=
+
+See also: [[https://www.eyrie.org/~eagle/notes/rpath.html]].
+* Relevant links
+- *Writing documentation*: http://stevelosh.com/blog/2013/09/teach-dont-tell/
+- *Semantic versioning*: http://semver.org/
+- *Writing good commit messages*: http://chris.beams.io/posts/git-commit/
+- *Change log*: http://keepachangelog.com/
+- *Branching model*: http://nvie.com/posts/a-successful-git-branching-model/
+- UCL BUG coding standards (sent by Felix)
+* Editors
+** VIM
+** Emacs
