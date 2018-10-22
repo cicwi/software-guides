@@ -55,6 +55,7 @@ sphinx-apidoc -F -o docs
 cd docs
 make html
 #+END_SRC
+- Theme: https://github.com/rtfd/sphinx_rtd_theme
 **** Publishing on gh-pages
 Two options:
 - =docs/= folder
