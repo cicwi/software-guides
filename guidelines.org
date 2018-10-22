@@ -24,6 +24,7 @@
 ***** [[https://www.youtube.com/watch?v=eC9-iRN2b04][CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”]]
 ***** [[https://www.youtube.com/watch?v=bsXLMQ6WgIk][C++Now 2017: Daniel Pfeifer “Effective CMake"]]
 ***** [[https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html][Dependency management CMake/Git]]
+***** https://foonathan.net/blog/2018/10/17/cmake-warnings.html
 **** Dynamically linked dependencies
 Three places that a binary looks for shared dependencies
 1. =LD_LIBRARY_PATH=
@@ -43,6 +44,14 @@ To check the =RPATH= in a binary on Linux, use =readelf -d <binary>=.
 To list all dynamic dependencies, use =ldd <binary>=
 
 See also: [[https://www.eyrie.org/~eagle/notes/rpath.html]].
+* Documentation
+** Python
+- http://www.sphinx-doc.org/en/master/
+** C/C++
+- http://www.sphinx-doc.org/en/master/
+- =mkdocs=
+- =breathe=
+- =doxygen=
 * Relevant links
 - *Writing documentation*: http://stevelosh.com/blog/2013/09/teach-dont-tell/
 - *Semantic versioning*: http://semver.org/
