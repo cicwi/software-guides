@@ -63,9 +63,9 @@ namespace py = pybind11;
 
 #include "your_project/your_project.hpp"
 
-using namespace slicerecon;
+using namespace your_project;
 
-PYBIND11_MODULE(py_slicerecon, m) {
+PYBIND11_MODULE(py_your_project, m) {
     m.doc() = "bindings for your_project";
 
     py::class_<your_project::object>(m, "object");
