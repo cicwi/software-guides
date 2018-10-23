@@ -44,6 +44,59 @@ To check the =RPATH= in a binary on Linux, use =readelf -d <binary>=.
 To list all dynamic dependencies, use =ldd <binary>=
 
 See also: [[https://www.eyrie.org/~eagle/notes/rpath.html]].
+**** Python bindings
+***** =pybind11=
+Adding Python bindings to C++ code is straightforward with pybind11. A good
+setup is as follows. (All relative to the root folder of the C++ project, which
+I call =your_project= here)
+****** Add pybind11 as a git submodule
+#+BEGIN_SRC bash
+git submodule add https://github.com/pybind/pybind11.git ext/pybind11
+#+END_SRC
+****** Set up the Python bindings
+Make a directory =python=, containing at least three files:
+******* =python/src/module.cpp=
+This contains the actual bindings, an example is like this:
+#+BEGIN_SRC cpp
+#include <pybind11/pybind11.h>
+namespace py = pybind11;
+
+#include "your_project/your_project.hpp"
+
+using namespace slicerecon;
+
+PYBIND11_MODULE(py_slicerecon, m) {
+    m.doc() = "bindings for your_project";
+
+    py::class_<your_project::object>(m, "object");
+}
+#+END_SRC
+******* =python/your_project/__init__.py=
+The entry point for the Python specific code of your project. Also reexports
+symbols from the generated bindings.
+#+BEGIN_SRC python
+from py_your_project import *
+#+END_SRC
+******* =python/CMakeLists.txt=
+You can build the bindings using CMake.
+#+BEGIN_SRC cmake
+set(BINDING_NAME "py_your_project")
+set(BINDING_SOURCES "src/module.cpp")
+
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "your_project")
+
+pybind11_add_module(${BINDING_NAME} ${BINDING_SOURCES})
+
+target_link_libraries(${BINDING_NAME} PRIVATE your_project)
+#+END_SRC
+****** Add it as a subdirectory
+In the main =CMakeLists.txt= of your project, add the Python folder:
+#+BEGIN_SRC cmake
+...
+add_subdirectory("ext/pybind11")
+add_subdirectory("python")
+#+END_SRC
+Now, the python bindings will be built alongside your project.
 * Documentation
 ** Python
 *** Sphinx
