@@ -50,10 +50,17 @@ care in sharing our scientific software, some of them we list below.
   scientific software.
 
 It can be intimidating to share your software with colleagues, let alone to
-release it to the public. We always want to /*clean up the code, and fix this last thing*/
-before we share it. However, especially since very few of us (if any) are trained as software
-engineers, it is not always clear what it means to have /clean/ software.
+release it to the public. We always want to /*clean up the code, and fix this
+last thing*/ before we share it. However, especially since very few of us (if
+any) are trained as software engineers, it is not always clear what it means to
+develop good, or /clean/, software. This means that a lot of software is kept
+private until it done, and regrettably this often means it is kept private
+indefinitely.
 
+Hopefully, after reading the next section, you will be fully equipped to turn
+your software projects into clear, clean and usable packages. Our intention is
+to ease the transition of your project from something that is written primarily
+for yourself, to something others can also use.
 * Anatomy of a software project
 Let us assume that you have developed an image reconstruction algorithm. You
 have designed your numerical experiments, and implemented them in Python
