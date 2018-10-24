@@ -1,41 +1,67 @@
-#+TITLE: Software Guidlines (CWI CI Group)
+#+TITLE: Software Guidelines (CWI CI Group)
 #+AUTHOR: Jan-Willem Buurlage, Allard Hendriksen
 
 * Introduction
-There are many reasons to share your scientific software.
-
-- Collaborations within the group
-- Collaborations with other groups
-- Scientific output
-- Publicity for you, and the group
-- Real-world impact of your research
-
-It can be intimidating to share your software with colleagues, let alone to
-release it to the public. We always want to /clean up the code, and fix this last thing/
-before we share it. However, especially since very few of us (if any) are trained as software
-engineers, it is not always clear what it means to have /clean/ software.
+This document consists of two parts. In the first part, we suggest useful tools,
+a good project structure, and some further guidelines, for sharing your software
+projects. In some sense, it is a checklist for your software package to make
+sure that it is easy to use for others, yet allows you to keep the freedom to
+develop your software further. The second part, /selected topics/, is a how-to guide for common tasks that you
+may need to perform while working on software.
 
 These notes are not intended to teach you the basics of programming, source
-control, or e.g. using Linux. Instead, it is about everything you need /after/
+control, or for example using Linux. Instead, it is about everything you need /after/
 you become a capable programmer, when you start producing software that becomes
 useful for others.
 
-This document consists of two parts. In the first part, we suggest useful tools,
-a a project structure, and some guidelines, for sharing your software projects.
-In some sense, this is a checklist for your software package to make sure that
-it is easy to use for others, yet allows you to keep the freedom to develop your
-software further.
+One question we should answer before diving in deep, is /why?!/. Indeed, why
+should we put so much effort in our software. We are, after all, scientists --
+not software developers! We believe there are many reasons why we /should/ take
+care in sharing our scientific software, some of them we list below.
 
-The second part, /selected topics/, is a how-to guide for common tasks that you
-may need to perform while working on software.
+- *Collaborations within the group*. Although everyone in the CI CWI group are
+  individual researchers, our work has a lot in common. Most of us work on
+  algorithms, target the same kind of data set, and often face the same
+  problems. For example, more often than not, an issue that you are facing has
+  already been tackled by someone before. Sharing our solutions means not having
+  to reinvent the wheel. Furthermore, someone else their expertise may push your
+  research further. Whether this means a new application of a neural network
+  structure, combining algorithms together for even better reconstructions, or
+  simply using a method you developed for the reconstruction of data recorded in
+  our lab.
+- *Collaborations with other groups.* The CI CWI group takes a unique position
+  in research -- somewhere in between the hardcore mathematics, and the more
+  experimental side of imaging. With our software, we can help bridge the gap
+  between experimentalists (who are often still using what we consider ancient
+  methods), and algorithm developers (who can be out of touch with the demands
+  and requirements of real-world imaging experiments), by working together with
+  both sides of this spectrum.
+- *Publicity*. Putting out software that is being used by others gives a lot of
+  exposure to yourself as a researcher, and the group as a whole. For example,
+  ASTRA has been an important part of our public identity.
+- *Real-world impact of your research.* Unfortunately, writing a beautiful
+  article outlining all the ins and outs of your method does not mean that it
+  will also be picked up and used by others. Time is scarce for everyone in
+  science, and anything beyond the most trivial algorithm will most likely not
+  be reimplemented outside our own research group. Publishing software alongside
+  an article makes it /much/ easier for others to use and apply your methods.
+- *Scientific output.* Slowly but surely, software itself is being recognized as
+  scientific output. There are many journals and conferences dedicated to
+  scientific software.
+
+It can be intimidating to share your software with colleagues, let alone to
+release it to the public. We always want to /*clean up the code, and fix this last thing*/
+before we share it. However, especially since very few of us (if any) are trained as software
+engineers, it is not always clear what it means to have /clean/ software.
+
 * Anatomy of a software project
 Let us assume that you have developed an image reconstruction algorithm. You
 have designed your numerical experiments, and implemented them in Python
 (perhaps on top of the ASTRA toolbox).
 
-In the most extreme case, the result is a single script, say
-=reconstruction_algorithm.py=, containing some classes, functions and some code
-that applies them to some data set.
+In the most extreme case, the result is a single script. This script contains
+for example some classes, functions and some code that applies them to a data
+set.
 
 Here, we will transform this script into a software package that is installable
 and usable by others, and maintainable and testable by you, the developer. We
