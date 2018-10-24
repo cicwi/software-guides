@@ -1,29 +1,89 @@
 #+TITLE: Software Guidlines (CWI CI Group)
 #+AUTHOR: Jan-Willem Buurlage, Allard Hendriksen
 
-* Coding standards
-** Python
-*** PEP8
-*** [[https://github.com/google/yapf][yapf]]
-** C/C++
-*** =clang-format=
-*** =clang-tidy=
-*** Sensible compile flags
-**** =-Wall=
-**** =-Werror=
-**** =-Wfatal=
-**** ...
-* Distributing software
-** Python
+* Introduction
+There are many reasons to share your scientific software.
+
+- Collaborations within the group
+- Collaborations with other groups
+- Scientific output
+- Publicity for you, and the group
+- Real-world impact of your research
+
+It can be intimidating to share your software with colleagues, let alone to
+release it to the public. We always want to /clean up the code, and fix this last thing/
+before we share it. However, especially since very few of us (if any) are trained as software
+engineers, it is not always clear what it means to have /clean/ software.
+
+These notes are not intended to teach you the basics of programming, source
+control, or e.g. using Linux. Instead, it is about everything you need /after/
+you become a capable programmer, when you start producing software that becomes
+useful for others.
+
+This document consists of two parts. In the first part, we suggest useful tools,
+a a project structure, and some guidelines, for sharing your software projects.
+In some sense, this is a checklist for your software package to make sure that
+it is easy to use for others, yet allows you to keep the freedom to develop your
+software further.
+
+The second part, /selected topics/, is a how-to guide for common tasks that you
+may need to perform while working on software.
+* Anatomy of a software project
+Let us assume that you have developed an image reconstruction algorithm. You
+have designed your numerical experiments, and implemented them in Python
+(perhaps on top of the ASTRA toolbox).
+
+In the most extreme case, the result is a single script, say
+=reconstruction_algorithm.py=, containing some classes, functions and some code
+that applies them to some data set.
+
+Here, we will transform this script into a software package that is installable
+and usable by others, and maintainable and testable by you, the developer. We
+will take the following steps.
+
+1. Update project structure
+2. Add documentation
+3. Add files for distribution
+4. Release the software
+
+** Update project structure
+- formatting
+- split files
+** Add documentation
+- README
+- Sphinx
+** Add files for distribution
+- Conda/pip
+- LICENSE
+** Release the software
+- CHANGELOG
+- GitHub release (semantic versioning)
+** Further development
+- Beyond v0.0.1
+* Selected topics
+** Coding standards
+*** Python
+**** PEP8
+**** [[https://github.com/google/yapf][yapf]]
+*** C/C++
+**** =clang-format=
+**** =clang-tidy=
+**** Sensible compile flags
+***** =-Wall=
+***** =-Werror=
+***** =-Wfatal=
+***** ...
+** Distributing software
+*** Python
 - =distutil=
 - How to define and distribute a conda package
-** C/C++
-**** Modern CMake
-***** C++ Weekly, [[https://www.youtube.com/watch?v=HPMvU64RUTY][Intro to CMake]]
-***** [[https://llvm.org/docs/CMakePrimer.html][CMakePrimer (LLVM)]]
-***** [[https://www.youtube.com/watch?v=eC9-iRN2b04][CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”]]
-***** [[https://www.youtube.com/watch?v=bsXLMQ6WgIk][C++Now 2017: Daniel Pfeifer “Effective CMake"]]
-***** [[https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html][Dependency management CMake/Git]]
+*** C/C++
+***** Modern CMake
+****** C++ Weekly, [[https://www.youtube.com/watch?v=HPMvU64RUTY][Intro to CMake]]
+****** [[https://llvm.org/docs/CMakePrimer.html][CMakePrimer (LLVM)]]
+****** [[https://www.youtube.com/watch?v=eC9-iRN2b04][CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”]]
+****** [[https://www.youtube.com/watch?v=bsXLMQ6WgIk][C++Now 2017: Daniel Pfeifer “Effective CMake"]]
+****** [[https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html][Dependency management CMake/Git]]
 Example:
 #+BEGIN_SRC cmake
 find_package(ZeroMQ QUIET)
@@ -48,8 +108,8 @@ else()
     target_link_libraries(zmq INTERFACE libzmq)
 endif()
 #+END_SRC
-***** https://foonathan.net/blog/2018/10/17/cmake-warnings.html
-**** Dynamically linked dependencies
+****** https://foonathan.net/blog/2018/10/17/cmake-warnings.html
+***** Dynamically linked dependencies
 Three places that a binary looks for shared dependencies
 1. =LD_LIBRARY_PATH=
 2. =rpath= encoded in binary
@@ -68,18 +128,18 @@ To check the =RPATH= in a binary on Linux, use =readelf -d <binary>=.
 To list all dynamic dependencies, use =ldd <binary>=
 
 See also: [[https://www.eyrie.org/~eagle/notes/rpath.html]].
-**** Python bindings
-***** =pybind11=
+***** Python bindings
+****** =pybind11=
 Adding Python bindings to C++ code is straightforward with pybind11. A good
 setup is as follows. (All relative to the root folder of the C++ project, which
 I call =your_project= here)
-****** Add pybind11 as a git submodule
+******* Add pybind11 as a git submodule
 #+BEGIN_SRC bash
 git submodule add https://github.com/pybind/pybind11.git ext/pybind11
 #+END_SRC
-****** Set up the Python bindings
+******* Set up the Python bindings
 Make a directory =python=, containing at least three files:
-******* =python/src/module.cpp=
+******** =python/src/module.cpp=
 This contains the actual bindings, an example is like this:
 #+BEGIN_SRC cpp
 #include <pybind11/pybind11.h>
@@ -95,13 +155,13 @@ PYBIND11_MODULE(py_your_project, m) {
     py::class_<your_project::object>(m, "object");
 }
 #+END_SRC
-******* =python/your_project/__init__.py=
+******** =python/your_project/__init__.py=
 The entry point for the Python specific code of your project. Also reexports
 symbols from the generated bindings.
 #+BEGIN_SRC python
 from py_your_project import *
 #+END_SRC
-******* =python/CMakeLists.txt=
+******** =python/CMakeLists.txt=
 You can build the bindings using CMake.
 #+BEGIN_SRC cmake
 set(BINDING_NAME "py_your_project")
@@ -113,7 +173,7 @@ pybind11_add_module(${BINDING_NAME} ${BINDING_SOURCES})
 
 target_link_libraries(${BINDING_NAME} PRIVATE your_project)
 #+END_SRC
-****** Add it as a subdirectory
+******* Add it as a subdirectory
 In the main =CMakeLists.txt= of your project, add the Python folder:
 #+BEGIN_SRC cmake
 ...
@@ -121,10 +181,10 @@ add_subdirectory("ext/pybind11")
 add_subdirectory("python")
 #+END_SRC
 Now, the python bindings will be built alongside your project.
-* Documentation
-** Python
-*** Sphinx
-**** Basic documentation generation
+** Documentation
+*** Python
+**** Sphinx
+***** Basic documentation generation
 - http://www.sphinx-doc.org/en/master/
 #+BEGIN_SRC bash
 pip install -U Sphinx
@@ -133,56 +193,56 @@ cd docs
 make html
 #+END_SRC
 - Theme: https://github.com/rtfd/sphinx_rtd_theme
-**** Publishing on gh-pages
+***** Publishing on gh-pages
 Two options:
 - =docs/= folder
 - =gh-pages= branch
 https://help.github.com/articles/creating-project-pages-using-the-command-line/
-** C/C++
+*** C/C++
 - http://www.sphinx-doc.org/en/master/
 - =mkdocs=
 - =breathe=
 - =doxygen=
-* Relevant links
+** Relevant links
 - *Writing documentation*: http://stevelosh.com/blog/2013/09/teach-dont-tell/
 - *Semantic versioning*: http://semver.org/
 - *Writing good commit messages*: http://chris.beams.io/posts/git-commit/
 - *Change log*: http://keepachangelog.com/
 - *Branching model*: http://nvie.com/posts/a-successful-git-branching-model/
 - UCL BUG coding standards (sent by Felix)
-* Editors
-** VIM
-** Emacs
-* HOWTO:
-** Python
-*** CONDA package
-*** Documentatie met sphinx
-*** Test my python code
+** Editors
+*** VIM
+*** Emacs
+** HOWTO:
+*** Python
+**** CONDA package
+**** Documentatie met sphinx
+**** Test my python code
 Pytest is a popular python testing framework. It has some dependency
 injection thingies going on, but most importantly it contains code to
 compare numbers [[https://docs.pytest.org/en/latest/reference.html#pytest-approx][approximately]].
 
 https://docs.pytest.org/en/latest/
-*** Use bumpversion
+**** Use bumpversion
 Changing the version of a python package is a pain. There are python
 versions in =setup.py=, =__init__.py=, and in =conda/meta.yaml=. This
 is all very confusing and annoying. Therefore, we have a program
 called bumpversion that does this for you.
-** C++
-*** CMAKE
-*** Python bindings for C++
-** Git
-*** Good commit messages
-*** Git branching model
-*** Release on GitHub
-** General
-*** Write a readme
+*** C++
+**** CMAKE
+**** Python bindings for C++
+*** Git
+**** Good commit messages
+**** Git branching model
+**** Release on GitHub
+*** General
+**** Write a readme
 [[https://github.com/LappleApple/feedmereadmes/blob/master/README-maturity-model.md][This github repo]] contains a useful model of maturity levels for a
 project's README.md file. It defines both the current level of
 maturity of a README and gives pointers on how to improve.
-*** Use module load
-*** Use github pages with sphinx
-*** Cookiecutter: project templates
+**** Use module load
+**** Use github pages with sphinx
+**** Cookiecutter: project templates
 Cookiecutter is a popular way to kickstart a python project. It fills
 in all the boilerplate.
 
