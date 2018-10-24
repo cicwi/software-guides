@@ -20,11 +20,11 @@
 ** C/C++
 **** Modern CMake
 ***** C++ Weekly, [[https://www.youtube.com/watch?v=HPMvU64RUTY][Intro to CMake]]
-***** [[https://llvm.org/docs/CMakePrimer.html][CMakePrimer (LLVM)]] 
+***** [[https://llvm.org/docs/CMakePrimer.html][CMakePrimer (LLVM)]]
 ***** [[https://www.youtube.com/watch?v=eC9-iRN2b04][CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”]]
 ***** [[https://www.youtube.com/watch?v=bsXLMQ6WgIk][C++Now 2017: Daniel Pfeifer “Effective CMake"]]
 ***** [[https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html][Dependency management CMake/Git]]
-Example: 
+Example:
 #+BEGIN_SRC cmake
 find_package(ZeroMQ QUIET)
 
@@ -153,3 +153,39 @@ https://help.github.com/articles/creating-project-pages-using-the-command-line/
 * Editors
 ** VIM
 ** Emacs
+* HOWTO:
+** Python
+*** CONDA package
+*** Documentatie met sphinx
+*** Test my python code
+Pytest is a popular python testing framework. It has some dependency
+injection thingies going on, but most importantly it contains code to
+compare numbers [[https://docs.pytest.org/en/latest/reference.html#pytest-approx][approximately]].
+
+https://docs.pytest.org/en/latest/
+*** Use bumpversion
+Changing the version of a python package is a pain. There are python
+versions in =setup.py=, =__init__.py=, and in =conda/meta.yaml=. This
+is all very confusing and annoying. Therefore, we have a program
+called bumpversion that does this for you.
+** C++
+*** CMAKE
+*** Python bindings for C++
+** Git
+*** Good commit messages
+*** Git branching model
+*** Release on GitHub
+** General
+*** Write a readme
+[[https://github.com/LappleApple/feedmereadmes/blob/master/README-maturity-model.md][This github repo]] contains a useful model of maturity levels for a
+project's README.md file. It defines both the current level of
+maturity of a README and gives pointers on how to improve.
+*** Use module load
+*** Use github pages with sphinx
+*** Cookiecutter: project templates
+Cookiecutter is a popular way to kickstart a python project. It fills
+in all the boilerplate.
+
+Cookiecutter templates:
+- [[https://github.com/conda/cookiecutter-conda-python/tree/master/%257B%257Bcookiecutter.repo_name%257D%257D][conda]]
+- [[https://github.com/mckaymatt/cookiecutter-pypackage-rust-cross-platform-publish][rust in python cross platform publish]]
