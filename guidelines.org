@@ -54,7 +54,7 @@ release it to the public. We always want to /*clean up the code, and fix this
 last thing*/ before we share it. However, especially since very few of us (if
 any) are trained as software engineers, it is not always clear what it means to
 develop good, or /clean/, software. This means that a lot of software is kept
-private until it done, and regrettably this often means it is kept private
+private until it is done, and regrettably this often means it is kept private
 indefinitely.
 
 Hopefully, after reading the next section, you will be fully equipped to turn
