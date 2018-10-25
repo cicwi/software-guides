@@ -88,6 +88,12 @@ having some responsibility. Luckily, with the setup we recommend, you can
 continue developing your software without frustrating your users by following a
 small set of rules.
 
+We will first discuss the steps, and it is not written to /following along as
+you read/, but rather to give an overview of what a minimal software package
+consists of. After this initial discussion, we will provide you with more detailed
+information on how to realize these steps for your software, as most of the
+steps can be automated.
+
 ** Update project structure
 First, we need to convert our code into a clean and predictable structure. The
 recommended structure depends mainly on the programming language used. We only
@@ -105,12 +111,12 @@ We will first set up our directory as follows:
 #+END_SRC
 
 Here, =hsp.py= contains functions and classes, while =run_on_data.py= contains
-code applying them to data. Note in bigger projects we can split =hsp.py=
+code applying them to data. Note in bigger projects you can split =hsp.py=
 further into multiple files, grouping them together by functionality. The file
 =__init__.py= ties them together. There can also be multiple examples.
 
 With this structure, we can use =import hsp= from scripts residing at our root
-folder. Later we will set our package up so that we can run this import
+folder. Later we will set our package up so that you can run this import
 statement from anywhere.
 ** Add documentation
 There are two classes of documentation. First, there is usually a readme file
@@ -124,15 +130,73 @@ should provide a potential user with all the information he needs to decide
 whether to use your software. Like writing good abstracts, writing good readme
 documents is an art form. At the minimum, it should contain the following. (1)
 The name of your software package, together with a short (one or two sentences)
-summary of what it does. (2) 
+summary of what it does. (2) Information on how to install the software. If it
+is a software library, it is usually a good idea to show a short example of code
+written on top of the library. (3) Information on the authors, the license, how
+to contribute, and potentially what article to cite if people use your software.
+
+The more detailed documentation can contain the README as a landing page, but
+typically takes a more /tutorial-like/ approach to describe the software.
+Usually, this means explaining how to do some example task with the software, or
+explaining the example code that is shipped alongside the library. The example
+code itself can also be considered documentation, and can usually be a stripped
+down version of the code you use yourself for e.g. numerical experiments.
+Furthermore, the documentation should provide an API overview, documenting all
+the classes and functions you expose to the user. This overview can be generated
+automatically from your code, using function signatures and optional
+/docstrings/ that you may have written. For Python projects, we recommend using
+Sphinx to generate the documentation.
 ** Add files for distribution
-- Conda/pip
-- LICENSE
+Next, you should allow yourself and your users to use your package by a simple
+=import= statement. For this, you can include a =setup.py= for =setuptools=,
+allowing your users to do a =pip install=. You can also add support for =conda=
+by including some basic =.yaml= files.
+
+You should to include a =LICENSE.md= file letting our users know what they are
+allowed to do with our software. Typically, software written by our group is
+released under the GPL.
 ** Release the software
-- CHANGELOG
-- GitHub release (semantic versioning)
+Releasing your software does not only mean that it is made available publicly.
+It means to provide a fixed, frozen version of the code that has no known bugs,
+and to assign it a version number. An initial version number can be =v0.0.1=.
+
+This is an important service to your potential users, because it gives them a
+predictable state of your code to fall back on. If you decide to further develop
+your code, you can do this freely without worrying about breaking your users'
+codes, because they can depend on this fixed release.
+
+This brings us to another important file, the release notes, which are contained
+in a file =CHANGELOG.md=. For the initial release, this file does not much
+information. Maybe a notice that it is the first public release, and the date at
+which it is published. However, as you add, amend, and change your software, you
+may want to release a next version, say =v0.0.2=. In the release notes, you can
+let the user know what has changed, and they should be able to see immediately
+if they should expect any difficulties when upgrading to the new version.
+
+We recommend using GitHub to publish your software. GitHub has a good mechanism
+for managing releases. Simply click on the /releases/ button, and create a new
+release. Provide a tag, name, and some basic information -- and GitHub will
+automatically mark the current state of the software as a new release. Next, you
+can upload the new release to Anaconda and/or PyPI.
 ** Further development
-- Beyond v0.0.1
+Now that your software is out in the public, making big changes to your software
+probably means breaking your users code.
+
+As a courtesy to your users, whenever you add, change or remove something add a
+line to your change log describing what is new.
+
+When releasing your new software, choose a new version number according to
+semantic versioning. In brief, when choosing a new number =vX.Y.Z= increment =Z=
+if you are fixing incorrect behaviour, =Y= if you are adding new functionality
+but user code should not break, and =X= if you make major changes that can break
+user code. This gives your users a lot of information on the new release simply
+by looking at the version unmber: they can always safely upgrade to your new
+release if =X= is unchanged, and should check what's new when either =X= or =Y=
+is increased.
+** Putting theory to practice: converting your code to a software package
+Instead of performing all the steps outlined above manually, the easiest way to
+set up your project correctly is by using the =cookiecutter= template we
+provide.
 * Selected topics
 ** Coding standards
 *** Python
@@ -284,12 +348,12 @@ https://help.github.com/articles/creating-project-pages-using-the-command-line/
 - *Branching model*: http://nvie.com/posts/a-successful-git-branching-model/
 - UCL BUG coding standards (sent by Felix)
 ** Editors
-*** VIM
-*** Emacs
-** HOWTO:
-*** Python
-**** CONDA package
-***** Publishing to cicwi
+** VIM
+** Emacs
+
+** Python
+*** CONDA package
+**** Publishing to cicwi
 Willem Jan:
 #+BEGIN_QUOTE
 Goed idee. Ik heb een cicwi organization aangemaakt, waarvan voorlopig
@@ -307,28 +371,28 @@ anaconda upload --user cicwi package.tar.bz2
 
 Zie https://docs.anaconda.com/anaconda-cloud/user-guide/tasks/work-with-organizations/ .
 
-**** Documentatie met sphinx
+*** Documentatie met sphinx
 
 On stackoverflow: [[https://stackoverflow.com/a/24385103][What is the docstring format in Python?]]
-**** Test my python code
+*** Test my python code
 Pytest is a popular python testing framework. It has some dependency
 injection thingies going on, but most importantly it contains code to
 compare numbers [[https://docs.pytest.org/en/latest/reference.html#pytest-approx][approximately]].
 
 https://docs.pytest.org/en/latest/
-**** Use bumpversion
+*** Use bumpversion
 Changing the version of a python package is a pain. There are python
 versions in =setup.py=, =__init__.py=, and in =conda/meta.yaml=. This
 is all very confusing and annoying. Therefore, we have a program
 called bumpversion that does this for you.
-*** C++
-**** CMAKE
-**** Python bindings for C++
-*** Git
-**** Good commit messages
-**** Git branching model
-**** Release on GitHub
-*** General
+** C++
+*** CMAKE
+*** Python bindings for C++
+** Git
+*** Good commit messages
+*** Git branching model
+*** Release on GitHub
+** General
 **** Write a readme
 [[https://github.com/LappleApple/feedmereadmes/blob/master/README-maturity-model.md][This github repo]] contains a useful model of maturity levels for a
 project's README.md file. It defines both the current level of
