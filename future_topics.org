@@ -1,0 +1,208 @@
+** Coding standards
+*** Python
+**** PEP8
+**** [[https://github.com/google/yapf][yapf]]
+*** C/C++
+**** =clang-format=
+**** =clang-tidy=
+**** Sensible compile flags
+***** =-Wall=
+***** =-Werror=
+***** =-Wfatal=
+***** ...
+** Distributing software
+*** Python
+- =distutil=
+- How to define and distribute a conda package
+*** C/C++
+***** Modern CMake
+****** C++ Weekly, [[https://www.youtube.com/watch?v=HPMvU64RUTY][Intro to CMake]]
+****** [[https://llvm.org/docs/CMakePrimer.html][CMakePrimer (LLVM)]]
+****** [[https://www.youtube.com/watch?v=eC9-iRN2b04][CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”]]
+****** [[https://www.youtube.com/watch?v=bsXLMQ6WgIk][C++Now 2017: Daniel Pfeifer “Effective CMake"]]
+****** [[https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html][Dependency management CMake/Git]]
+Example:
+#+BEGIN_SRC cmake
+find_package(ZeroMQ QUIET)
+
+if (ZeroMQ_FOUND)
+    add_library(zmq INTERFACE)
+    target_include_directories(zmq INTERFACE ${ZeroMQ_INCLUDE_DIR})
+    target_link_libraries(zmq INTERFACE ${ZeroMQ_LIBRARY})
+else()
+    message("'zmq' not installed on the system, building from source...")
+
+    execute_process(COMMAND git submodule update --init --remote -- ext/libzmq
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+
+    set(ZMQ_BUILD_TESTS OFF CACHE BOOL "disable tests" FORCE)
+    set(WITH_PERF_TOOL OFF CACHE BOOL "disable perf-tools" FORCE)
+    add_subdirectory(${CMAKE_SOURCE_DIR}/ext/libzmq)
+    set(ZMQ_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ext/libzmq/include)
+
+    # ZeroMQ names their target libzmq, which is inconsistent => create a ghost dependency
+    add_library(zmq INTERFACE)
+    target_link_libraries(zmq INTERFACE libzmq)
+endif()
+#+END_SRC
+****** https://foonathan.net/blog/2018/10/17/cmake-warnings.html
+***** Dynamically linked dependencies
+Three places that a binary looks for shared dependencies
+1. =LD_LIBRARY_PATH=
+2. =rpath= encoded in binary
+3. system default paths
+
+Danger of (1) is that it overrides the specific dependencies of all binaries run.
+
+For shared systems, or non-root users, (3) can be a problem.
+
+For 2 you proceed as follows:
+- set =LD_RUN_PATH= to something hardcoded
+- use =-R= in gcc
+
+To check the =RPATH= in a binary on Linux, use =readelf -d <binary>=.
+
+To list all dynamic dependencies, use =ldd <binary>=
+
+See also: [[https://www.eyrie.org/~eagle/notes/rpath.html]].
+***** Python bindings
+****** =pybind11=
+Adding Python bindings to C++ code is straightforward with pybind11. A good
+setup is as follows. (All relative to the root folder of the C++ project, which
+I call =your_project= here)
+******* Add pybind11 as a git submodule
+#+BEGIN_SRC bash
+git submodule add https://github.com/pybind/pybind11.git ext/pybind11
+#+END_SRC
+******* Set up the Python bindings
+Make a directory =python=, containing at least three files:
+******** =python/src/module.cpp=
+This contains the actual bindings, an example is like this:
+#+BEGIN_SRC cpp
+#include <pybind11/pybind11.h>
+namespace py = pybind11;
+
+#include "your_project/your_project.hpp"
+
+using namespace your_project;
+
+PYBIND11_MODULE(py_your_project, m) {
+    m.doc() = "bindings for your_project";
+
+    py::class_<your_project::object>(m, "object");
+}
+#+END_SRC
+******** =python/your_project/__init__.py=
+The entry point for the Python specific code of your project. Also reexports
+symbols from the generated bindings.
+#+BEGIN_SRC python
+from py_your_project import *
+#+END_SRC
+******** =python/CMakeLists.txt=
+You can build the bindings using CMake.
+#+BEGIN_SRC cmake
+set(BINDING_NAME "py_your_project")
+set(BINDING_SOURCES "src/module.cpp")
+
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+
+pybind11_add_module(${BINDING_NAME} ${BINDING_SOURCES})
+
+target_link_libraries(${BINDING_NAME} PRIVATE your_project)
+#+END_SRC
+******* Add it as a subdirectory
+In the main =CMakeLists.txt= of your project, add the Python folder:
+#+BEGIN_SRC cmake
+...
+add_subdirectory("ext/pybind11")
+add_subdirectory("python")
+#+END_SRC
+Now, the python bindings will be built alongside your project.
+** Documentation
+*** Python
+**** Sphinx
+***** Basic documentation generation
+- http://www.sphinx-doc.org/en/master/
+#+BEGIN_SRC bash
+pip install -U Sphinx
+sphinx-apidoc -F -o docs
+cd docs
+make html
+#+END_SRC
+- Theme: https://github.com/rtfd/sphinx_rtd_theme
+***** Publishing on gh-pages
+Two options:
+- =docs/= folder
+- =gh-pages= branch
+https://help.github.com/articles/creating-project-pages-using-the-command-line/
+*** C/C++
+- http://www.sphinx-doc.org/en/master/
+- =mkdocs=
+- =breathe=
+- =doxygen=
+** Relevant links
+- *Writing documentation*: http://stevelosh.com/blog/2013/09/teach-dont-tell/
+- *Semantic versioning*: http://semver.org/
+- *Writing good commit messages*: http://chris.beams.io/posts/git-commit/
+- *Change log*: http://keepachangelog.com/
+- *Branching model*: http://nvie.com/posts/a-successful-git-branching-model/
+- UCL BUG coding standards (sent by Felix)
+** Editors
+** VIM
+** Emacs
+
+** Python
+*** CONDA package
+**** Publishing to cicwi
+Willem Jan:
+#+BEGIN_QUOTE
+Goed idee. Ik heb een cicwi organization aangemaakt, waarvan voorlopig
+Allard en ik owners zijn. Het gaat niet met een shared password, maar
+door anaconda-accounts rechten te geven binnen de cicwi organization
+door accounts aan de 'Owners' (admin) of 'Packagers' (read/write)
+group toe te voegen.
+
+Een package uploaden gaat dan met:
+#+END_QUOTE
+
+#+BEGIN_SRC sh
+anaconda upload --user cicwi package.tar.bz2
+#+END_SRC
+
+Zie https://docs.anaconda.com/anaconda-cloud/user-guide/tasks/work-with-organizations/ .
+
+*** Documentatie met sphinx
+
+On stackoverflow: [[https://stackoverflow.com/a/24385103][What is the docstring format in Python?]]
+*** Test my python code
+Pytest is a popular python testing framework. It has some dependency
+injection thingies going on, but most importantly it contains code to
+compare numbers [[https://docs.pytest.org/en/latest/reference.html#pytest-approx][approximately]].
+
+https://docs.pytest.org/en/latest/
+*** Use bumpversion
+Changing the version of a python package is a pain. There are python
+versions in =setup.py=, =__init__.py=, and in =conda/meta.yaml=. This
+is all very confusing and annoying. Therefore, we have a program
+called bumpversion that does this for you.
+** C++
+*** CMAKE
+*** Python bindings for C++
+** Git
+*** Good commit messages
+*** Git branching model
+*** Release on GitHub
+** General
+**** Write a readme
+[[https://github.com/LappleApple/feedmereadmes/blob/master/README-maturity-model.md][This github repo]] contains a useful model of maturity levels for a
+project's README.md file. It defines both the current level of
+maturity of a README and gives pointers on how to improve.
+**** Use module load
+**** Use github pages with sphinx
+**** Cookiecutter: project templates
+Cookiecutter is a popular way to kickstart a python project. It fills
+in all the boilerplate.
+
+Cookiecutter templates:
+- [[https://github.com/conda/cookiecutter-conda-python/tree/master/%257B%257Bcookiecutter.repo_name%257D%257D][conda]]
+- [[https://github.com/mckaymatt/cookiecutter-pypackage-rust-cross-platform-publish][rust in python cross platform publish]]
