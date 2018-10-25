@@ -89,11 +89,42 @@ continue developing your software without frustrating your users by following a
 small set of rules.
 
 ** Update project structure
-- formatting
-- split files
+First, we need to convert our code into a clean and predictable structure. The
+recommended structure depends mainly on the programming language used. We only
+consider Python software for now, but we will discuss other languages later. Our
+hypothetical software package will be called =hsp=, for hypothetical software
+package.
+
+We will first set up our directory as follows:
+#+BEGIN_SRC bash
+├── example
+│   └── run_on_data.py
+└── hsp
+    ├── hsp.py
+    └── __init__.py
+#+END_SRC
+
+Here, =hsp.py= contains functions and classes, while =run_on_data.py= contains
+code applying them to data. Note in bigger projects we can split =hsp.py=
+further into multiple files, grouping them together by functionality. The file
+=__init__.py= ties them together. There can also be multiple examples.
+
+With this structure, we can use =import hsp= from scripts residing at our root
+folder. Later we will set our package up so that we can run this import
+statement from anywhere.
 ** Add documentation
-- README
-- Sphinx
+There are two classes of documentation. First, there is usually a readme file
+called =README.md=, containing some basic information on the project. Second, detailed
+documentation is provided on a separate webpage (hosted online or shipped
+alongside the software). We will discuss a good way to set up initial
+documentation.
+
+The readme file is comparable to the metadata and abstract of an article. It
+should provide a potential user with all the information he needs to decide
+whether to use your software. Like writing good abstracts, writing good readme
+documents is an art form. At the minimum, it should contain the following. (1)
+The name of your software package, together with a short (one or two sentences)
+summary of what it does. (2) 
 ** Add files for distribution
 - Conda/pip
 - LICENSE
