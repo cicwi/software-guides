@@ -1,4 +1,4 @@
-#+TITLE: Software Guidelines (CWI CI Group)
+#+TITLE: Software Guide (CWI CI Group)
 #+AUTHOR: Jan-Willem Buurlage, Allard Hendriksen
 
 * Introduction
