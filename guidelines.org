@@ -268,6 +268,8 @@ anaconda upload --user cicwi package.tar.bz2
 Zie https://docs.anaconda.com/anaconda-cloud/user-guide/tasks/work-with-organizations/ .
 
 **** Documentatie met sphinx
+
+On stackoverflow: [[https://stackoverflow.com/a/24385103][What is the docstring format in Python?]]
 **** Test my python code
 Pytest is a popular python testing framework. It has some dependency
 injection thingies going on, but most importantly it contains code to
