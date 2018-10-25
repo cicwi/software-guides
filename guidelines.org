@@ -72,12 +72,21 @@ set.
 
 Here, we will transform this script into a software package that is installable
 and usable by others, and maintainable and testable by you, the developer. We
-will take the following steps.
-
-1. Update project structure
-2. Add documentation
-3. Add files for distribution
-4. Release the software
+will take the following steps, which we will explain in detail later. (1)
+*Update project structure*. A software project consists of more than just the
+code. In should also include additional files, containing additional information
+for the user. (2) *Add documentation*. Since you developed the software, you
+know exactly how it works (and how it doesn't). Unfortunately, your users cannot
+read your mind. Minimally, you should provide some basic information on how to
+install and use your software, as well as what your users are allowed to do with
+it. (3) *Add files for distribution*. Before you can release your software into
+the wild, you need to add build files, and license. (4) *Release the software*.
+With a good structure, documentation and distribution files in place -- we are
+ready for release. We add release notes to the project, and assign a version to
+the software. (5) *Further development*. Unfortunately, having users also means
+having some responsibility. Luckily, with the setup we recommend, you can
+continue developing your software without frustrating your users by following a
+small set of rules.
 
 ** Update project structure
 - formatting
