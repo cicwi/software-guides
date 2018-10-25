@@ -249,6 +249,24 @@ https://help.github.com/articles/creating-project-pages-using-the-command-line/
 ** HOWTO:
 *** Python
 **** CONDA package
+***** Publishing to cicwi
+Willem Jan:
+#+BEGIN_QUOTE
+Goed idee. Ik heb een cicwi organization aangemaakt, waarvan voorlopig
+Allard en ik owners zijn. Het gaat niet met een shared password, maar
+door anaconda-accounts rechten te geven binnen de cicwi organization
+door accounts aan de 'Owners' (admin) of 'Packagers' (read/write)
+group toe te voegen.
+
+Een package uploaden gaat dan met:
+#+END_QUOTE
+
+#+BEGIN_SRC sh
+anaconda upload --user cicwi package.tar.bz2
+#+END_SRC
+
+Zie https://docs.anaconda.com/anaconda-cloud/user-guide/tasks/work-with-organizations/ .
+
 **** Documentatie met sphinx
 **** Test my python code
 Pytest is a popular python testing framework. It has some dependency
