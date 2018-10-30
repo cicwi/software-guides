@@ -6,15 +6,15 @@ This document consists of two parts. In the first part, we suggest useful tools,
 a good project structure, and some further guidelines, for sharing your software
 projects. In some sense, it is a checklist for your software package to make
 sure that it is easy to use for others, yet allows you to keep the freedom to
-develop your software further. The second part, /selected topics/, is a how-to guide for common tasks that you
-may need to perform while working on software.
+develop your software further. The second part, /selected topics/, is a how-to
+guide for common tasks that you may need to perform while working on software.
 
 These notes are not intended to teach you the basics of programming, source
-control, or for example using Linux. Instead, it is about everything you need /after/
-you become a capable programmer, when you start producing software that becomes
-useful for others.
+control, or for example using Linux. Instead, it is about everything you need
+/after/ you become a capable programmer, when you start producing software that
+becomes useful for others.
 
-One question we should answer before diving in deep, is /why?/. Indeed, why
+One question we should answer before diving in deep, is /why?/ Indeed, why
 should we put so much effort in our software. We are, after all, scientists --
 not software developers! We believe there are many reasons why we /should/ take
 care in sharing our scientific software, some of them we list below.
@@ -126,7 +126,7 @@ alongside the software). We will discuss a good way to set up initial
 documentation.
 
 The readme file is comparable to the metadata and abstract of an article. It
-should provide a potential user with all the information he needs to decide
+should provide a potential user with all the information they need to decide
 whether to use your software. Like writing good abstracts, writing good readme
 documents is an art form. At the minimum, it should contain the following. (1)
 The name of your software package, together with a short (one or two sentences)
@@ -176,8 +176,8 @@ if they should expect any difficulties when upgrading to the new version.
 We recommend using GitHub to publish your software. GitHub has a good mechanism
 for managing releases. Simply click on the /releases/ button, and create a new
 release. Provide a tag, name, and some basic information -- and GitHub will
-automatically mark the current state of the software as a new release. Next, you
-can upload the new release to Anaconda and/or PyPI.
+automatically mark the current state of the software as a new release. Next, if
+it is a Python project, you can upload the new release to Anaconda and/or PyPI.
 ** Further development
 Now that your software is out in the public, making big changes to your software
 probably means breaking your users code.
