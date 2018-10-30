@@ -206,3 +206,6 @@ in all the boilerplate.
 Cookiecutter templates:
 - [[https://github.com/conda/cookiecutter-conda-python/tree/master/%257B%257Bcookiecutter.repo_name%257D%257D][conda]]
 - [[https://github.com/mckaymatt/cookiecutter-pypackage-rust-cross-platform-publish][rust in python cross platform publish]]
+**** Travis CI
+***** C++17
+***** travis.yml / Makefile
