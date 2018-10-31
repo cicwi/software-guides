@@ -15,7 +15,7 @@ The _CICWI Software Release Guide_ can be viewed
 
 It is a step-by-step guide for converting an arbitrary software project into a
 package that is usable, installable, and understandable by others. We do not
-only discuss the /how/s, but also the /why/s of distributing scientific
+only discuss the _how_s, but also the _why_s of distributing scientific
 software.
 
 ### How-to guide
@@ -23,6 +23,9 @@ software.
 The _CICWI How-to Software Guide_  can be viewed
 [online](https://cicwi.github.io/software-guidelines/how-to-guide), as a
 [pdf](https://github.com/cicwi/software-guidelines/raw/master/docs/how-to-guide.pdf), or by the [`org`](https://github.com/cicwi/software-guidelines/raw/master/how-to-guide.org) source.
+
+This (living) document is a collection of small, self-contained tutorials to
+accomplish specific tasks that have to do with software development.
 
 ## Authors and contributing
 
