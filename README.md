@@ -13,7 +13,7 @@ The _CICWI Software Release Guide_ can be viewed
 [online](https://cicwi.github.io/software-guidelines/software-release-guide), as
 a
 [pdf](https://github.com/cicwi/software-guidelines/raw/master/docs/software-release-guide.pdf),
-or by the
+or you can look at the
 [`org`](https://github.com/cicwi/software-guidelines/raw/master/software-release-guide.org)
 source.
 
@@ -27,7 +27,7 @@ software.
 The _CICWI How-to Software Guide_ can be viewed
 [online](https://cicwi.github.io/software-guidelines/how-to-guide), as a
 [pdf](https://github.com/cicwi/software-guidelines/raw/master/docs/how-to-guide.pdf),
-or by the
+or you can look at the
 [`org`](https://github.com/cicwi/software-guidelines/raw/master/how-to-guide.org)
 source.
 
