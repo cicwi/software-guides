@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-10-31 Wed 14:50 -->
+<!-- 2018-10-31 Wed 15:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Software Release Guide (CWI CI Group)</title>
@@ -234,23 +234,23 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orged38ca9">1. Introduction</a></li>
-<li><a href="#org1b8b4cf">2. Anatomy of a software project</a>
+<li><a href="#org9d35f47">1. Introduction</a></li>
+<li><a href="#org4c97b10">2. Anatomy of a software project</a>
 <ul>
-<li><a href="#orgc6c0624">2.1. Update project structure</a></li>
-<li><a href="#orgc558691">2.2. Add documentation</a></li>
-<li><a href="#org122247c">2.3. Add files for distribution</a></li>
-<li><a href="#orgf2fad44">2.4. Release the software</a></li>
-<li><a href="#org30437c6">2.5. Further development</a></li>
-<li><a href="#orgbc8951e">2.6. Putting theory to practice: converting your code to a software package</a></li>
+<li><a href="#org6d154a9">2.1. Update project structure</a></li>
+<li><a href="#org227474d">2.2. Add documentation</a></li>
+<li><a href="#org5c5bf7d">2.3. Add files for distribution</a></li>
+<li><a href="#org69c05b4">2.4. Release the software</a></li>
+<li><a href="#orga6ff6cf">2.5. Further development</a></li>
+<li><a href="#org304d92a">2.6. Putting theory to practice: converting your code to a software package</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orged38ca9" class="outline-2">
-<h2 id="orged38ca9"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org9d35f47" class="outline-2">
+<h2 id="org9d35f47"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This document consists of two parts. In the first part, we suggest useful tools,
@@ -325,8 +325,8 @@ for yourself, to something others can also use.
 </p>
 </div>
 </div>
-<div id="outline-container-org1b8b4cf" class="outline-2">
-<h2 id="org1b8b4cf"><span class="section-number-2">2</span> Anatomy of a software project</h2>
+<div id="outline-container-org4c97b10" class="outline-2">
+<h2 id="org4c97b10"><span class="section-number-2">2</span> Anatomy of a software project</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Let us assume that you have developed an image reconstruction algorithm. You
@@ -369,8 +369,8 @@ steps can be automated.
 </p>
 </div>
 
-<div id="outline-container-orgc6c0624" class="outline-3">
-<h3 id="orgc6c0624"><span class="section-number-3">2.1</span> Update project structure</h3>
+<div id="outline-container-org6d154a9" class="outline-3">
+<h3 id="org6d154a9"><span class="section-number-3">2.1</span> Update project structure</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 First, we need to convert our code into a clean and predictable structure. The
@@ -406,8 +406,8 @@ statement from anywhere.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc558691" class="outline-3">
-<h3 id="orgc558691"><span class="section-number-3">2.2</span> Add documentation</h3>
+<div id="outline-container-org227474d" class="outline-3">
+<h3 id="org227474d"><span class="section-number-3">2.2</span> Add documentation</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 There are two classes of documentation. First, there is usually a readme file
@@ -444,8 +444,8 @@ Sphinx to generate the documentation.
 </p>
 </div>
 </div>
-<div id="outline-container-org122247c" class="outline-3">
-<h3 id="org122247c"><span class="section-number-3">2.3</span> Add files for distribution</h3>
+<div id="outline-container-org5c5bf7d" class="outline-3">
+<h3 id="org5c5bf7d"><span class="section-number-3">2.3</span> Add files for distribution</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Next, you should allow yourself and your users to use your package by a simple
@@ -461,8 +461,8 @@ released under the GPL.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf2fad44" class="outline-3">
-<h3 id="orgf2fad44"><span class="section-number-3">2.4</span> Release the software</h3>
+<div id="outline-container-org69c05b4" class="outline-3">
+<h3 id="org69c05b4"><span class="section-number-3">2.4</span> Release the software</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Releasing your software does not only mean that it is made available publicly.
@@ -496,8 +496,8 @@ it is a Python project, you can upload the new release to Anaconda and/or PyPI.
 </p>
 </div>
 </div>
-<div id="outline-container-org30437c6" class="outline-3">
-<h3 id="org30437c6"><span class="section-number-3">2.5</span> Further development</h3>
+<div id="outline-container-orga6ff6cf" class="outline-3">
+<h3 id="orga6ff6cf"><span class="section-number-3">2.5</span> Further development</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Now that your software is out in the public, making big changes to your software
@@ -521,8 +521,8 @@ is increased.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbc8951e" class="outline-3">
-<h3 id="orgbc8951e"><span class="section-number-3">2.6</span> Putting theory to practice: converting your code to a software package</h3>
+<div id="outline-container-org304d92a" class="outline-3">
+<h3 id="org304d92a"><span class="section-number-3">2.6</span> Putting theory to practice: converting your code to a software package</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Instead of performing all the steps outlined above manually, the easiest way to
@@ -535,7 +535,7 @@ provide.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jan-Willem Buurlage, Allard Hendriksen</p>
-<p class="date">Created: 2018-10-31 Wed 14:50</p>
+<p class="date">Created: 2018-10-31 Wed 15:34</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
