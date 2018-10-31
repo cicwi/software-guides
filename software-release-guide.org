@@ -197,3 +197,79 @@ is increased.
 Instead of performing all the steps outlined above manually, the easiest way to
 set up your project correctly is by using the =cookiecutter= template we
 provide.
+*** TODO Quickstart
+Install the latest Cookiecutter if you haven't installed it yet (this requires
+Cookiecutter 1.4.0 or higher)::
+
+#+BEGIN_SRC bash
+pip install -U cookiecutter
+#+END_SRC
+
+
+Generate a Python package project::
+
+#+BEGIN_SRC bash
+cookiecutter https://github.com/cicwi/cookiecutter-cicwi.git
+#+END_SRC
+
+Then:
+1. Answer the questions that cookiecutter asks
+2. =cd new-project=
+3. =git init=
+4. Install development requirements
+   1. =make install_dev=
+5. Install requirements
+   1. =make install=
+6. Update README
+7. Write software
+8. Keep changelog
+9. Update documentation
+   1. make docs
+10. Commit code
+11. Create release with bumpversion
+    1. =bumpversion minor=
+    2. =bumpversion patch=
+12. Push to github
+13. Create release on GitHub
+14. Create GitHub pages documentation
+
+**** Make commands
+
+The project comes with a default Makefile. The Makefile has a
+reasonable number of built-in commands.
+
+***** Development requirements
+Download and install development requirements into your current conda
+environment with
+#+BEGIN_SRC bash
+make install_dev
+#+END_SRC
+
+****** TODO this installs
+
+***** Install requirements
+Download and install your project requirements into your current conda
+environment with
+#+BEGIN_SRC bash
+make install
+#+END_SRC
+
+****** TODO this installs
+
+***** Update the documentation.
+Update your documentation with
+#+BEGIN_SRC bash
+make docs
+#+END_SRC
+***** Code formatting
+Automatically reformat the code of your project to a common format
+with
+#+BEGIN_SRC bash
+make style
+#+END_SRC
+***** Build conda package
+The command
+#+BEGIN_SRC bash
+make conda_package
+#+END_SRC
+builds a conda package, which you can share on https://anaconda.org/.
