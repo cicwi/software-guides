@@ -9,9 +9,9 @@ development.
 ## Guides
 ### Software release guide
 
-The /CICWI Software Release Guide/ can be viewed
-[online][https://cicwi.github.io/software-guides/release-guide], as a
-[pdf][FIXME], or by the [`org`][FIXME] source.
+The _CICWI Software Release Guide_ can be viewed
+[online](https://cicwi.github.io/software-guidelines/software-release-guide), as a
+[pdf](https://github.com/cicwi/software-guidelines/raw/master/docs/software-release-guide.pdf), or by the [`org`](https://github.com/cicwi/software-guidelines/raw/master/software-release-guide.org) source.
 
 It is a step-by-step guide for converting an arbitrary software project into a
 package that is usable, installable, and understandable by others. We do not
@@ -20,9 +20,9 @@ software.
 
 ### How-to guide
 
-The /CICWI How-to Software Guide/ can be viewed
-[online][https://cicwi.github.io/software-guides/how-to-guide], as a
-[pdf][FIXME], or by the [`org`][FIXME] source.
+The _CICWI How-to Software Guide_  can be viewed
+[online](https://cicwi.github.io/software-guidelines/how-to-guide), as a
+[pdf](https://github.com/cicwi/software-guidelines/raw/master/docs/how-to-guide.pdf), or by the [`org`](https://github.com/cicwi/software-guidelines/raw/master/how-to-guide.org) source.
 
 ## Authors and contributing
 
