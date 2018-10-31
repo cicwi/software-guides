@@ -15,7 +15,7 @@ The _CICWI Software Release Guide_ can be viewed
 
 It is a step-by-step guide for converting an arbitrary software project into a
 package that is usable, installable, and understandable by others. We do not
-only discuss the _how_s, but also the _why_s of distributing scientific
+only discuss the _hows_, but also the _whys_ of distributing scientific
 software.
 
 ### How-to guide
