@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-10-31 Wed 14:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Software Release Guide (CWI CI Group)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Jan-Willem Buurlage, Allard Hendriksen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Software Release Guide (CWI CI Group)</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orged38ca9">1. Introduction</a></li>
+<li><a href="#org1b8b4cf">2. Anatomy of a software project</a>
+<ul>
+<li><a href="#orgc6c0624">2.1. Update project structure</a></li>
+<li><a href="#orgc558691">2.2. Add documentation</a></li>
+<li><a href="#org122247c">2.3. Add files for distribution</a></li>
+<li><a href="#orgf2fad44">2.4. Release the software</a></li>
+<li><a href="#org30437c6">2.5. Further development</a></li>
+<li><a href="#orgbc8951e">2.6. Putting theory to practice: converting your code to a software package</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orged38ca9" class="outline-2">
+<h2 id="orged38ca9"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This document consists of two parts. In the first part, we suggest useful tools,
+a good project structure, and some further guidelines, for sharing your software
+projects. In some sense, it is a checklist for your software package to make
+sure that it is easy to use for others, yet allows you to keep the freedom to
+develop your software further. The second part, <i>selected topics</i>, is a how-to
+guide for common tasks that you may need to perform while working on software.
+</p>
+
+<p>
+These notes are not intended to teach you the basics of programming, source
+control, or for example using Linux. Instead, it is about everything you need
+<i>after</i> you become a capable programmer, when you start producing software that
+becomes useful for others.
+</p>
+
+<p>
+One question we should answer before diving in deep, is <i>why?</i> Indeed, why
+should we put so much effort in our software. We are, after all, scientists &#x2013;
+not software developers! We believe there are many reasons why we <i>should</i> take
+care in sharing our scientific software, some of them we list below.
+</p>
+
+<ul class="org-ul">
+<li><b>Collaborations within the group</b>. Although everyone in the CI CWI group are
+individual researchers, our work has a lot in common. Most of us work on
+algorithms, target the same kind of data set, and often face the same
+problems. For example, more often than not, an issue that you are facing has
+already been tackled by someone before. Sharing our solutions means not having
+to reinvent the wheel. Furthermore, someone else their expertise may push your
+research further. Whether this means a new application of a neural network
+structure, combining algorithms together for even better reconstructions, or
+simply using a method you developed for the reconstruction of data recorded in
+our lab.</li>
+<li><b>Collaborations with other groups.</b> The CI CWI group takes a unique position
+in research &#x2013; somewhere in between the hardcore mathematics, and the more
+experimental side of imaging. With our software, we can help bridge the gap
+between experimentalists (who are often still using what we consider ancient
+methods), and algorithm developers (who can be out of touch with the demands
+and requirements of real-world imaging experiments), by working together with
+both sides of this spectrum.</li>
+<li><b>Publicity</b>. Putting out software that is being used by others gives a lot of
+exposure to yourself as a researcher, and the group as a whole. For example,
+ASTRA has been an important part of our public identity.</li>
+<li><b>Real-world impact of your research.</b> Unfortunately, writing a beautiful
+article outlining all the ins and outs of your method does not mean that it
+will also be picked up and used by others. Time is scarce for everyone in
+science, and anything beyond the most trivial algorithm will most likely not
+be reimplemented outside our own research group. Publishing software alongside
+an article makes it <i>much</i> easier for others to use and apply your methods.</li>
+<li><b>Scientific output.</b> Slowly but surely, software itself is being recognized as
+scientific output. There are many journals and conferences dedicated to
+scientific software.</li>
+</ul>
+
+<p>
+It can be intimidating to share your software with colleagues, let alone to
+release it to the public. We always want to <i><b>clean up the code, and fix this
+last thing</b></i> before we share it. However, especially since very few of us (if
+any) are trained as software engineers, it is not always clear what it means to
+develop good, or <i>clean</i>, software. This means that a lot of software is kept
+private until it is done, and regrettably this often means it is kept private
+indefinitely.
+</p>
+
+<p>
+Hopefully, after reading the next section, you will be fully equipped to turn
+your software projects into clear, clean and usable packages. Our intention is
+to ease the transition of your project from something that is written primarily
+for yourself, to something others can also use.
+</p>
+</div>
+</div>
+<div id="outline-container-org1b8b4cf" class="outline-2">
+<h2 id="org1b8b4cf"><span class="section-number-2">2</span> Anatomy of a software project</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Let us assume that you have developed an image reconstruction algorithm. You
+have designed your numerical experiments, and implemented them in Python
+(perhaps on top of the ASTRA toolbox).
+</p>
+
+<p>
+In the most extreme case, the result is a single script. This script contains
+for example some classes, functions and some code that applies them to a data
+set.
+</p>
+
+<p>
+Here, we will transform this script into a software package that is installable
+and usable by others, and maintainable and testable by you, the developer. We
+will take the following steps, which we will explain in detail later. (1)
+<b>Update project structure</b>. A software project consists of more than just the
+code. In should also include additional files, containing additional information
+for the user. (2) <b>Add documentation</b>. Since you developed the software, you
+know exactly how it works (and how it doesn't). Unfortunately, your users cannot
+read your mind. Minimally, you should provide some basic information on how to
+install and use your software, as well as what your users are allowed to do with
+it. (3) <b>Add files for distribution</b>. Before you can release your software into
+the wild, you need to add build files, and license. (4) <b>Release the software</b>.
+With a good structure, documentation and distribution files in place &#x2013; we are
+ready for release. We add release notes to the project, and assign a version to
+the software. (5) <b>Further development</b>. Unfortunately, having users also means
+having some responsibility. Luckily, with the setup we recommend, you can
+continue developing your software without frustrating your users by following a
+small set of rules.
+</p>
+
+<p>
+We will first discuss the steps, and it is not written to <i>following along as
+you read</i>, but rather to give an overview of what a minimal software package
+consists of. After this initial discussion, we will provide you with more detailed
+information on how to realize these steps for your software, as most of the
+steps can be automated.
+</p>
+</div>
+
+<div id="outline-container-orgc6c0624" class="outline-3">
+<h3 id="orgc6c0624"><span class="section-number-3">2.1</span> Update project structure</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+First, we need to convert our code into a clean and predictable structure. The
+recommended structure depends mainly on the programming language used. We only
+consider Python software for now, but we will discuss other languages later. Our
+hypothetical software package will be called <code>hsp</code>, for hypothetical software
+package.
+</p>
+
+<p>
+We will first set up our directory as follows:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">&#9500;&#9472;&#9472; example
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; run_on_data.py
+&#9492;&#9472;&#9472; hsp
+    &#9500;&#9472;&#9472; hsp.py
+    &#9492;&#9472;&#9472; __init__.py
+</pre>
+</div>
+
+<p>
+Here, <code>hsp.py</code> contains functions and classes, while <code>run_on_data.py</code> contains
+code applying them to data. Note in bigger projects you can split <code>hsp.py</code>
+further into multiple files, grouping them together by functionality. The file
+<code>__init__.py</code> ties them together. There can also be multiple examples.
+</p>
+
+<p>
+With this structure, we can use <code>import hsp</code> from scripts residing at our root
+folder. Later we will set our package up so that you can run this import
+statement from anywhere.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc558691" class="outline-3">
+<h3 id="orgc558691"><span class="section-number-3">2.2</span> Add documentation</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+There are two classes of documentation. First, there is usually a readme file
+called <code>README.md</code>, containing some basic information on the project. Second, detailed
+documentation is provided on a separate webpage (hosted online or shipped
+alongside the software). We will discuss a good way to set up initial
+documentation.
+</p>
+
+<p>
+The readme file is comparable to the metadata and abstract of an article. It
+should provide a potential user with all the information they need to decide
+whether to use your software. Like writing good abstracts, writing good readme
+documents is an art form. At the minimum, it should contain the following. (1)
+The name of your software package, together with a short (one or two sentences)
+summary of what it does. (2) Information on how to install the software. If it
+is a software library, it is usually a good idea to show a short example of code
+written on top of the library. (3) Information on the authors, the license, how
+to contribute, and potentially what article to cite if people use your software.
+</p>
+
+<p>
+The more detailed documentation can contain the README as a landing page, but
+typically takes a more <i>tutorial-like</i> approach to describe the software.
+Usually, this means explaining how to do some example task with the software, or
+explaining the example code that is shipped alongside the library. The example
+code itself can also be considered documentation, and can usually be a stripped
+down version of the code you use yourself for e.g. numerical experiments.
+Furthermore, the documentation should provide an API overview, documenting all
+the classes and functions you expose to the user. This overview can be generated
+automatically from your code, using function signatures and optional
+<i>docstrings</i> that you may have written. For Python projects, we recommend using
+Sphinx to generate the documentation.
+</p>
+</div>
+</div>
+<div id="outline-container-org122247c" class="outline-3">
+<h3 id="org122247c"><span class="section-number-3">2.3</span> Add files for distribution</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Next, you should allow yourself and your users to use your package by a simple
+<code>import</code> statement. For this, you can include a <code>setup.py</code> for <code>setuptools</code>,
+allowing your users to do a <code>pip install</code>. You can also add support for <code>conda</code>
+by including some basic <code>.yaml</code> files.
+</p>
+
+<p>
+You should to include a <code>LICENSE.md</code> file letting our users know what they are
+allowed to do with our software. Typically, software written by our group is
+released under the GPL.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf2fad44" class="outline-3">
+<h3 id="orgf2fad44"><span class="section-number-3">2.4</span> Release the software</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Releasing your software does not only mean that it is made available publicly.
+It means to provide a fixed, frozen version of the code that has no known bugs,
+and to assign it a version number. An initial version number can be <code>v0.0.1</code>.
+</p>
+
+<p>
+This is an important service to your potential users, because it gives them a
+predictable state of your code to fall back on. If you decide to further develop
+your code, you can do this freely without worrying about breaking your users'
+codes, because they can depend on this fixed release.
+</p>
+
+<p>
+This brings us to another important file, the release notes, which are contained
+in a file <code>CHANGELOG.md</code>. For the initial release, this file does not much
+information. Maybe a notice that it is the first public release, and the date at
+which it is published. However, as you add, amend, and change your software, you
+may want to release a next version, say <code>v0.0.2</code>. In the release notes, you can
+let the user know what has changed, and they should be able to see immediately
+if they should expect any difficulties when upgrading to the new version.
+</p>
+
+<p>
+We recommend using GitHub to publish your software. GitHub has a good mechanism
+for managing releases. Simply click on the <i>releases</i> button, and create a new
+release. Provide a tag, name, and some basic information &#x2013; and GitHub will
+automatically mark the current state of the software as a new release. Next, if
+it is a Python project, you can upload the new release to Anaconda and/or PyPI.
+</p>
+</div>
+</div>
+<div id="outline-container-org30437c6" class="outline-3">
+<h3 id="org30437c6"><span class="section-number-3">2.5</span> Further development</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Now that your software is out in the public, making big changes to your software
+probably means breaking your users code.
+</p>
+
+<p>
+As a courtesy to your users, whenever you add, change or remove something add a
+line to your change log describing what is new.
+</p>
+
+<p>
+When releasing your new software, choose a new version number according to
+semantic versioning. In brief, when choosing a new number <code>vX.Y.Z</code> increment <code>Z</code>
+if you are fixing incorrect behaviour, <code>Y</code> if you are adding new functionality
+but user code should not break, and <code>X</code> if you make major changes that can break
+user code. This gives your users a lot of information on the new release simply
+by looking at the version number: they can always safely upgrade to your new
+release if <code>X</code> is unchanged, and should check what's new when either <code>X</code> or <code>Y</code>
+is increased.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbc8951e" class="outline-3">
+<h3 id="orgbc8951e"><span class="section-number-3">2.6</span> Putting theory to practice: converting your code to a software package</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Instead of performing all the steps outlined above manually, the easiest way to
+set up your project correctly is by using the <code>cookiecutter</code> template we
+provide.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jan-Willem Buurlage, Allard Hendriksen</p>
+<p class="date">Created: 2018-10-31 Wed 14:50</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

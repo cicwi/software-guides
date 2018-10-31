@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-10-31 Wed 14:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Software Release Guide (CWI CI Group)</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Jan-Willem Buurlage, Allard Hendriksen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Software Release Guide (CWI CI Group)</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3fe6af3">1. Coding standards</a>
+<ul>
+<li><a href="#org4b2049a">1.1. Python</a>
+<ul>
+<li><a href="#org38d82c1">1.1.1. PEP8</a></li>
+<li><a href="#org0ff790e">1.1.2. yapf</a></li>
+</ul>
+</li>
+<li><a href="#org475618e">1.2. C/C++</a>
+<ul>
+<li><a href="#org96d30ec">1.2.1. <code>clang-format</code></a></li>
+<li><a href="#org97474b0">1.2.2. <code>clang-tidy</code></a></li>
+<li><a href="#orgf2f2572">1.2.3. Sensible compile flags</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb05bdac">2. Distributing software</a>
+<ul>
+<li><a href="#org6a5eeea">2.1. Python</a></li>
+<li><a href="#org4b2aba6">2.2. C/C++</a></li>
+</ul>
+</li>
+<li><a href="#org73d1a45">3. Documentation</a>
+<ul>
+<li><a href="#org1037cbe">3.1. Python</a>
+<ul>
+<li><a href="#orgf7be76b">3.1.1. Sphinx</a></li>
+</ul>
+</li>
+<li><a href="#org2fccc2b">3.2. C/C++</a></li>
+</ul>
+</li>
+<li><a href="#orgccf5070">4. Relevant links</a></li>
+<li><a href="#org9c2d407">5. Editors</a></li>
+<li><a href="#orgf58f416">6. VIM</a></li>
+<li><a href="#orge9a0bcb">7. Emacs</a></li>
+<li><a href="#org262bee5">8. Python</a>
+<ul>
+<li><a href="#org5214b8a">8.1. CONDA package</a>
+<ul>
+<li><a href="#orgfae9913">8.1.1. Publishing to cicwi</a></li>
+</ul>
+</li>
+<li><a href="#org8463a6d">8.2. Documentatie met sphinx</a></li>
+<li><a href="#org6f8dcd7">8.3. Test my python code</a></li>
+<li><a href="#org622f5bf">8.4. Use bumpversion</a></li>
+</ul>
+</li>
+<li><a href="#org5fe1432">9. C++</a>
+<ul>
+<li><a href="#orgde07f4d">9.1. CMAKE</a></li>
+<li><a href="#org3c1cda7">9.2. Python bindings for C++</a></li>
+</ul>
+</li>
+<li><a href="#org9692371">10. Git</a>
+<ul>
+<li><a href="#orgc0cdd02">10.1. Good commit messages</a></li>
+<li><a href="#org2732e43">10.2. Git branching model</a></li>
+<li><a href="#org1cc0e57">10.3. Release on GitHub</a></li>
+</ul>
+</li>
+<li><a href="#orge8375d6">11. General</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org619f53e">11.0.1. Write a readme</a></li>
+<li><a href="#org5150663">11.0.2. Use module load</a></li>
+<li><a href="#org98105d5">11.0.3. Use github pages with sphinx</a></li>
+<li><a href="#org97def13">11.0.4. Cookiecutter: project templates</a></li>
+<li><a href="#org47cd57c">11.0.5. Travis CI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3fe6af3" class="outline-2">
+<h2 id="org3fe6af3"><span class="section-number-2">1</span> Coding standards</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org4b2049a" class="outline-3">
+<h3 id="org4b2049a"><span class="section-number-3">1.1</span> Python</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org38d82c1" class="outline-4">
+<h4 id="org38d82c1"><span class="section-number-4">1.1.1</span> PEP8</h4>
+</div>
+<div id="outline-container-org0ff790e" class="outline-4">
+<h4 id="org0ff790e"><span class="section-number-4">1.1.2</span> <a href="https://github.com/google/yapf">yapf</a></h4>
+</div>
+</div>
+<div id="outline-container-org475618e" class="outline-3">
+<h3 id="org475618e"><span class="section-number-3">1.2</span> C/C++</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-org96d30ec" class="outline-4">
+<h4 id="org96d30ec"><span class="section-number-4">1.2.1</span> <code>clang-format</code></h4>
+</div>
+<div id="outline-container-org97474b0" class="outline-4">
+<h4 id="org97474b0"><span class="section-number-4">1.2.2</span> <code>clang-tidy</code></h4>
+</div>
+<div id="outline-container-orgf2f2572" class="outline-4">
+<h4 id="orgf2f2572"><span class="section-number-4">1.2.3</span> Sensible compile flags</h4>
+<div class="outline-text-4" id="text-1-2-3">
+</div>
+<ol class="org-ol">
+<li><a id="orge666aa9"></a><code>-Wall</code><br /></li>
+<li><a id="orge7b4d04"></a><code>-Werror</code><br /></li>
+<li><a id="org958008e"></a><code>-Wfatal</code><br /></li>
+<li><a id="org7b80373"></a>&#x2026;<br /></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb05bdac" class="outline-2">
+<h2 id="orgb05bdac"><span class="section-number-2">2</span> Distributing software</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org6a5eeea" class="outline-3">
+<h3 id="org6a5eeea"><span class="section-number-3">2.1</span> Python</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><code>distutil</code></li>
+<li>How to define and distribute a conda package</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4b2aba6" class="outline-3">
+<h3 id="org4b2aba6"><span class="section-number-3">2.2</span> C/C++</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<ol class="org-ol">
+<li><a id="orgac519c3"></a>Modern CMake<br />
+<ol class="org-ol">
+<li><a id="org6dc692e"></a>C++ Weekly, <a href="https://www.youtube.com/watch?v=HPMvU64RUTY">Intro to CMake</a><br /></li>
+<li><a id="org003068d"></a><a href="https://llvm.org/docs/CMakePrimer.html">CMakePrimer (LLVM)</a><br /></li>
+<li><a id="orgd47543f"></a><a href="https://www.youtube.com/watch?v=eC9-iRN2b04">CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”</a><br /></li>
+<li><a id="org691ba13"></a><a href="https://www.youtube.com/watch?v=bsXLMQ6WgIk">C++Now 2017: Daniel Pfeifer “Effective CMake"</a><br /></li>
+<li><a id="orgecfbb02"></a><a href="https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html">Dependency management CMake/Git</a><br />
+<div class="outline-text-6" id="text-2-2-0-1-5">
+<p>
+Example:
+</p>
+<div class="org-src-container">
+<pre class="src src-cmake"><span style="font-weight: bold;">find_package</span>(ZeroMQ QUIET)
+
+<span style="font-weight: bold;">if</span> (ZeroMQ_FOUND)
+    <span style="font-weight: bold;">add_library</span>(zmq INTERFACE)
+    <span style="font-weight: bold;">target_include_directories</span>(zmq INTERFACE ${<span style="font-weight: bold; font-style: italic;">ZeroMQ_INCLUDE_DIR</span>})
+    <span style="font-weight: bold;">target_link_libraries</span>(zmq INTERFACE ${<span style="font-weight: bold; font-style: italic;">ZeroMQ_LIBRARY</span>})
+<span style="font-weight: bold;">else</span>()
+    <span style="font-weight: bold;">message</span>(<span style="font-style: italic;">"'zmq' not installed on the system, building from source..."</span>)
+
+    <span style="font-weight: bold;">execute_process</span>(COMMAND git submodule update --init --remote -- ext/libzmq
+        WORKING_DIRECTORY ${<span style="font-weight: bold; font-style: italic;">CMAKE_SOURCE_DIR</span>})
+
+    <span style="font-weight: bold;">set</span>(ZMQ_BUILD_TESTS OFF CACHE BOOL <span style="font-style: italic;">"disable tests"</span> FORCE)
+    <span style="font-weight: bold;">set</span>(WITH_PERF_TOOL OFF CACHE BOOL <span style="font-style: italic;">"disable perf-tools"</span> FORCE)
+    <span style="font-weight: bold;">add_subdirectory</span>(${<span style="font-weight: bold; font-style: italic;">CMAKE_SOURCE_DIR</span>}/ext/libzmq)
+    <span style="font-weight: bold;">set</span>(ZMQ_INCLUDE_DIR ${<span style="font-weight: bold; font-style: italic;">CMAKE_SOURCE_DIR</span>}/ext/libzmq/include)
+
+    <span style="font-weight: bold; font-style: italic;"># ZeroMQ names their target libzmq, which is inconsistent =&gt; create a ghost dependency</span>
+    <span style="font-weight: bold;">add_library</span>(zmq INTERFACE)
+    <span style="font-weight: bold;">target_link_libraries</span>(zmq INTERFACE libzmq)
+<span style="font-weight: bold;">endif</span>()
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgd231305"></a><a href="https://foonathan.net/blog/2018/10/17/cmake-warnings.html">https://foonathan.net/blog/2018/10/17/cmake-warnings.html</a><br /></li>
+</ol>
+</li>
+<li><a id="org2a277db"></a>Dynamically linked dependencies<br />
+<div class="outline-text-5" id="text-2-2-0-2">
+<p>
+Three places that a binary looks for shared dependencies
+</p>
+<ol class="org-ol">
+<li><code>LD_LIBRARY_PATH</code></li>
+<li><code>rpath</code> encoded in binary</li>
+<li>system default paths</li>
+</ol>
+
+<p>
+Danger of (1) is that it overrides the specific dependencies of all binaries run.
+</p>
+
+<p>
+For shared systems, or non-root users, (3) can be a problem.
+</p>
+
+<p>
+For 2 you proceed as follows:
+</p>
+<ul class="org-ul">
+<li>set <code>LD_RUN_PATH</code> to something hardcoded</li>
+<li>use <code>-R</code> in gcc</li>
+</ul>
+
+<p>
+To check the <code>RPATH</code> in a binary on Linux, use <code>readelf -d &lt;binary&gt;</code>.
+</p>
+
+<p>
+To list all dynamic dependencies, use <code>ldd &lt;binary&gt;</code>
+</p>
+
+<p>
+See also: <a href="https://www.eyrie.org/~eagle/notes/rpath.html">https://www.eyrie.org/~eagle/notes/rpath.html</a>.
+</p>
+</div>
+</li>
+<li><a id="org9dbfd33"></a>Python bindings<br />
+<ol class="org-ol">
+<li><a id="org6f23d39"></a><code>pybind11</code><br />
+<div class="outline-text-6" id="text-2-2-0-3-1">
+<p>
+Adding Python bindings to C++ code is straightforward with pybind11. A good
+setup is as follows. (All relative to the root folder of the C++ project, which
+I call <code>your_project</code> here)
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org26f1442"></a>Add pybind11 as a git submodule<br />
+<div class="outline-text-7" id="text-2-2-0-3-1-1">
+<div class="org-src-container">
+<pre class="src src-bash">git submodule add https://github.com/pybind/pybind11.git ext/pybind11
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgc5fc7a7"></a>Set up the Python bindings<br />
+<div class="outline-text-7" id="text-2-2-0-3-1-2">
+<p>
+Make a directory <code>python</code>, containing at least three files:
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgb266725"></a><code>python/src/module.cpp</code><br />
+<div class="outline-text-8" id="text-2-2-0-3-1-2-1">
+<p>
+This contains the actual bindings, an example is like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="font-weight: bold;">#include</span> <span style="font-style: italic;">&lt;pybind11/pybind11.h&gt;</span>
+<span style="font-weight: bold;">namespace</span> <span style="font-weight: bold; text-decoration: underline;">py</span> = pybind11;
+
+<span style="font-weight: bold;">#include</span> <span style="font-style: italic;">"your_project/your_project.hpp"</span>
+
+<span style="font-weight: bold;">using</span> <span style="font-weight: bold;">namespace</span> <span style="font-weight: bold; text-decoration: underline;">your_project</span>;
+
+<span style="font-weight: bold;">PYBIND11_MODULE</span>(py_your_project, m) {
+    m.doc() = <span style="font-style: italic;">"bindings for your_project"</span>;
+
+    <span style="font-weight: bold; text-decoration: underline;">py</span>::class_&lt;<span style="font-weight: bold; text-decoration: underline;">your_project</span>::object&gt;(m, <span style="font-style: italic;">"object"</span>);
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org150068f"></a><code>python/your_project/__init__.py</code><br />
+<div class="outline-text-8" id="text-2-2-0-3-1-2-2">
+<p>
+The entry point for the Python specific code of your project. Also reexports
+symbols from the generated bindings.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">from</span> py_your_project <span style="font-weight: bold;">import</span> *
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org27b98b0"></a><code>python/CMakeLists.txt</code><br />
+<div class="outline-text-8" id="text-2-2-0-3-1-2-3">
+<p>
+You can build the bindings using CMake.
+</p>
+<div class="org-src-container">
+<pre class="src src-cmake"><span style="font-weight: bold;">set</span>(BINDING_NAME <span style="font-style: italic;">"py_your_project"</span>)
+<span style="font-weight: bold;">set</span>(BINDING_SOURCES <span style="font-style: italic;">"src/module.cpp"</span>)
+
+<span style="font-weight: bold;">set</span>(CMAKE_LIBRARY_OUTPUT_DIRECTORY <span style="font-style: italic;">"${</span><span style="font-weight: bold; font-style: italic;">CMAKE_CURRENT_SOURCE_DIR</span><span style="font-style: italic;">}"</span>)
+
+<span style="font-weight: bold;">pybind11_add_module</span>(${<span style="font-weight: bold; font-style: italic;">BINDING_NAME</span>} ${<span style="font-weight: bold; font-style: italic;">BINDING_SOURCES</span>})
+
+<span style="font-weight: bold;">target_link_libraries</span>(${<span style="font-weight: bold; font-style: italic;">BINDING_NAME</span>} PRIVATE your_project)
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="orge6e2887"></a>Add it as a subdirectory<br />
+<div class="outline-text-7" id="text-2-2-0-3-1-3">
+<p>
+In the main <code>CMakeLists.txt</code> of your project, add the Python folder:
+</p>
+<div class="org-src-container">
+<pre class="src src-cmake">...
+<span style="font-weight: bold;">add_subdirectory</span>(<span style="font-style: italic;">"ext/pybind11"</span>)
+<span style="font-weight: bold;">add_subdirectory</span>(<span style="font-style: italic;">"python"</span>)
+</pre>
+</div>
+<p>
+Now, the python bindings will be built alongside your project.
+</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org73d1a45" class="outline-2">
+<h2 id="org73d1a45"><span class="section-number-2">3</span> Documentation</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org1037cbe" class="outline-3">
+<h3 id="org1037cbe"><span class="section-number-3">3.1</span> Python</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orgf7be76b" class="outline-4">
+<h4 id="orgf7be76b"><span class="section-number-4">3.1.1</span> Sphinx</h4>
+<div class="outline-text-4" id="text-3-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="orga44f67c"></a>Basic documentation generation<br />
+<div class="outline-text-5" id="text-3-1-1-1">
+<ul class="org-ul">
+<li><a href="http://www.sphinx-doc.org/en/master/">http://www.sphinx-doc.org/en/master/</a></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-bash">pip install -U Sphinx
+sphinx-apidoc -F -o docs
+<span style="font-weight: bold;">cd</span> docs
+make html
+</pre>
+</div>
+<ul class="org-ul">
+<li>Theme: <a href="https://github.com/rtfd/sphinx_rtd_theme">https://github.com/rtfd/sphinx_rtd_theme</a></li>
+</ul>
+</div>
+</li>
+<li><a id="org5a6e7c8"></a>Publishing on gh-pages<br />
+<div class="outline-text-5" id="text-3-1-1-2">
+<p>
+Two options:
+</p>
+<ul class="org-ul">
+<li><code>docs/</code> folder</li>
+<li><code>gh-pages</code> branch</li>
+</ul>
+<p>
+<a href="https://help.github.com/articles/creating-project-pages-using-the-command-line/">https://help.github.com/articles/creating-project-pages-using-the-command-line/</a>
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org2fccc2b" class="outline-3">
+<h3 id="org2fccc2b"><span class="section-number-3">3.2</span> C/C++</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li><a href="http://www.sphinx-doc.org/en/master/">http://www.sphinx-doc.org/en/master/</a></li>
+<li><code>mkdocs</code></li>
+<li><code>breathe</code></li>
+<li><code>doxygen</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgccf5070" class="outline-2">
+<h2 id="orgccf5070"><span class="section-number-2">4</span> Relevant links</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><b>Writing documentation</b>: <a href="http://stevelosh.com/blog/2013/09/teach-dont-tell/">http://stevelosh.com/blog/2013/09/teach-dont-tell/</a></li>
+<li><b>Semantic versioning</b>: <a href="http://semver.org/">http://semver.org/</a></li>
+<li><b>Writing good commit messages</b>: <a href="http://chris.beams.io/posts/git-commit/">http://chris.beams.io/posts/git-commit/</a></li>
+<li><b>Change log</b>: <a href="http://keepachangelog.com/">http://keepachangelog.com/</a></li>
+<li><b>Branching model</b>: <a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a></li>
+<li>UCL BUG coding standards (sent by Felix)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9c2d407" class="outline-2">
+<h2 id="org9c2d407"><span class="section-number-2">5</span> Editors</h2>
+</div>
+<div id="outline-container-orgf58f416" class="outline-2">
+<h2 id="orgf58f416"><span class="section-number-2">6</span> VIM</h2>
+</div>
+<div id="outline-container-orge9a0bcb" class="outline-2">
+<h2 id="orge9a0bcb"><span class="section-number-2">7</span> Emacs</h2>
+</div>
+
+<div id="outline-container-org262bee5" class="outline-2">
+<h2 id="org262bee5"><span class="section-number-2">8</span> Python</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org5214b8a" class="outline-3">
+<h3 id="org5214b8a"><span class="section-number-3">8.1</span> CONDA package</h3>
+<div class="outline-text-3" id="text-8-1">
+</div>
+<div id="outline-container-orgfae9913" class="outline-4">
+<h4 id="orgfae9913"><span class="section-number-4">8.1.1</span> Publishing to cicwi</h4>
+<div class="outline-text-4" id="text-8-1-1">
+<p>
+Willem Jan:
+</p>
+<blockquote>
+<p>
+Goed idee. Ik heb een cicwi organization aangemaakt, waarvan voorlopig
+Allard en ik owners zijn. Het gaat niet met een shared password, maar
+door anaconda-accounts rechten te geven binnen de cicwi organization
+door accounts aan de 'Owners' (admin) of 'Packagers' (read/write)
+group toe te voegen.
+</p>
+
+<p>
+Een package uploaden gaat dan met:
+</p>
+</blockquote>
+
+<div class="org-src-container">
+<pre class="src src-sh">anaconda upload --user cicwi package.tar.bz2
+</pre>
+</div>
+
+<p>
+Zie <a href="https://docs.anaconda.com/anaconda-cloud/user-guide/tasks/work-with-organizations/">https://docs.anaconda.com/anaconda-cloud/user-guide/tasks/work-with-organizations/</a> .
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8463a6d" class="outline-3">
+<h3 id="org8463a6d"><span class="section-number-3">8.2</span> Documentatie met sphinx</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+On stackoverflow: <a href="https://stackoverflow.com/a/24385103">What is the docstring format in Python?</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org6f8dcd7" class="outline-3">
+<h3 id="org6f8dcd7"><span class="section-number-3">8.3</span> Test my python code</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+Pytest is a popular python testing framework. It has some dependency
+injection thingies going on, but most importantly it contains code to
+compare numbers <a href="https://docs.pytest.org/en/latest/reference.html#pytest-approx">approximately</a>.
+</p>
+
+<p>
+<a href="https://docs.pytest.org/en/latest/">https://docs.pytest.org/en/latest/</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org622f5bf" class="outline-3">
+<h3 id="org622f5bf"><span class="section-number-3">8.4</span> Use bumpversion</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+Changing the version of a python package is a pain. There are python
+versions in <code>setup.py</code>, <code>__init__.py</code>, and in <code>conda/meta.yaml</code>. This
+is all very confusing and annoying. Therefore, we have a program
+called bumpversion that does this for you.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5fe1432" class="outline-2">
+<h2 id="org5fe1432"><span class="section-number-2">9</span> C++</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-orgde07f4d" class="outline-3">
+<h3 id="orgde07f4d"><span class="section-number-3">9.1</span> CMAKE</h3>
+</div>
+<div id="outline-container-org3c1cda7" class="outline-3">
+<h3 id="org3c1cda7"><span class="section-number-3">9.2</span> Python bindings for C++</h3>
+</div>
+</div>
+<div id="outline-container-org9692371" class="outline-2">
+<h2 id="org9692371"><span class="section-number-2">10</span> Git</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-orgc0cdd02" class="outline-3">
+<h3 id="orgc0cdd02"><span class="section-number-3">10.1</span> Good commit messages</h3>
+</div>
+<div id="outline-container-org2732e43" class="outline-3">
+<h3 id="org2732e43"><span class="section-number-3">10.2</span> Git branching model</h3>
+</div>
+<div id="outline-container-org1cc0e57" class="outline-3">
+<h3 id="org1cc0e57"><span class="section-number-3">10.3</span> Release on GitHub</h3>
+</div>
+</div>
+<div id="outline-container-orge8375d6" class="outline-2">
+<h2 id="orge8375d6"><span class="section-number-2">11</span> General</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org619f53e" class="outline-4">
+<h4 id="org619f53e"><span class="section-number-4">11.0.1</span> Write a readme</h4>
+<div class="outline-text-4" id="text-11-0-1">
+<p>
+<a href="https://github.com/LappleApple/feedmereadmes/blob/master/README-maturity-model.md">This github repo</a> contains a useful model of maturity levels for a
+project's README.md file. It defines both the current level of
+maturity of a README and gives pointers on how to improve.
+</p>
+</div>
+</div>
+<div id="outline-container-org5150663" class="outline-4">
+<h4 id="org5150663"><span class="section-number-4">11.0.2</span> Use module load</h4>
+</div>
+<div id="outline-container-org98105d5" class="outline-4">
+<h4 id="org98105d5"><span class="section-number-4">11.0.3</span> Use github pages with sphinx</h4>
+</div>
+<div id="outline-container-org97def13" class="outline-4">
+<h4 id="org97def13"><span class="section-number-4">11.0.4</span> Cookiecutter: project templates</h4>
+<div class="outline-text-4" id="text-11-0-4">
+<p>
+Cookiecutter is a popular way to kickstart a python project. It fills
+in all the boilerplate.
+</p>
+
+<p>
+Cookiecutter templates:
+</p>
+<ul class="org-ul">
+<li><a href="https://github.com/conda/cookiecutter-conda-python/tree/master/%7B%7Bcookiecutter.repo_name%7D%7D">conda</a></li>
+<li><a href="https://github.com/mckaymatt/cookiecutter-pypackage-rust-cross-platform-publish">rust in python cross platform publish</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org47cd57c" class="outline-4">
+<h4 id="org47cd57c"><span class="section-number-4">11.0.5</span> Travis CI</h4>
+<div class="outline-text-4" id="text-11-0-5">
+</div>
+<ol class="org-ol">
+<li><a id="orga9055e1"></a>C++17<br /></li>
+<li><a id="orgc402a6c"></a>travis.yml / Makefile<br /></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jan-Willem Buurlage, Allard Hendriksen</p>
+<p class="date">Created: 2018-10-31 Wed 14:50</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
