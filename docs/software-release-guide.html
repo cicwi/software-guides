@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-10-31 Wed 15:34 -->
+<!-- 2018-11-01 Thu 13:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Software Release Guide (CWI CI Group)</title>
@@ -234,23 +234,30 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9d35f47">1. Introduction</a></li>
-<li><a href="#org4c97b10">2. Anatomy of a software project</a>
+<li><a href="#org6f40f6a">1. Introduction</a></li>
+<li><a href="#org8408838">2. Anatomy of a software project</a>
 <ul>
-<li><a href="#org6d154a9">2.1. Update project structure</a></li>
-<li><a href="#org227474d">2.2. Add documentation</a></li>
-<li><a href="#org5c5bf7d">2.3. Add files for distribution</a></li>
-<li><a href="#org69c05b4">2.4. Release the software</a></li>
-<li><a href="#orga6ff6cf">2.5. Further development</a></li>
-<li><a href="#org304d92a">2.6. Putting theory to practice: converting your code to a software package</a></li>
+<li><a href="#org8f5cfc2">2.1. Update project structure</a></li>
+<li><a href="#org37b1942">2.2. Add documentation</a></li>
+<li><a href="#org021d6c8">2.3. Add files for distribution</a></li>
+<li><a href="#org71dba4b">2.4. Release the software</a></li>
+<li><a href="#orgaf772f8">2.5. Further development</a></li>
+<li><a href="#org0ef9cfe">2.6. Putting theory to practice: developing a Python a software package</a>
+<ul>
+<li><a href="#org70eb583">2.6.1. Set up software project structure</a></li>
+<li><a href="#org76771e0">2.6.2. Adding your code</a></li>
+<li><a href="#org08f2272">2.6.3. Creating an initial release</a></li>
+<li><a href="#org2b8cf33">2.6.4. Further development</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9d35f47" class="outline-2">
-<h2 id="org9d35f47"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org6f40f6a" class="outline-2">
+<h2 id="org6f40f6a"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This document consists of two parts. In the first part, we suggest useful tools,
@@ -325,8 +332,8 @@ for yourself, to something others can also use.
 </p>
 </div>
 </div>
-<div id="outline-container-org4c97b10" class="outline-2">
-<h2 id="org4c97b10"><span class="section-number-2">2</span> Anatomy of a software project</h2>
+<div id="outline-container-org8408838" class="outline-2">
+<h2 id="org8408838"><span class="section-number-2">2</span> Anatomy of a software project</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Let us assume that you have developed an image reconstruction algorithm. You
@@ -369,8 +376,8 @@ steps can be automated.
 </p>
 </div>
 
-<div id="outline-container-org6d154a9" class="outline-3">
-<h3 id="org6d154a9"><span class="section-number-3">2.1</span> Update project structure</h3>
+<div id="outline-container-org8f5cfc2" class="outline-3">
+<h3 id="org8f5cfc2"><span class="section-number-3">2.1</span> Update project structure</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 First, we need to convert our code into a clean and predictable structure. The
@@ -406,8 +413,8 @@ statement from anywhere.
 </p>
 </div>
 </div>
-<div id="outline-container-org227474d" class="outline-3">
-<h3 id="org227474d"><span class="section-number-3">2.2</span> Add documentation</h3>
+<div id="outline-container-org37b1942" class="outline-3">
+<h3 id="org37b1942"><span class="section-number-3">2.2</span> Add documentation</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 There are two classes of documentation. First, there is usually a readme file
@@ -444,8 +451,8 @@ Sphinx to generate the documentation.
 </p>
 </div>
 </div>
-<div id="outline-container-org5c5bf7d" class="outline-3">
-<h3 id="org5c5bf7d"><span class="section-number-3">2.3</span> Add files for distribution</h3>
+<div id="outline-container-org021d6c8" class="outline-3">
+<h3 id="org021d6c8"><span class="section-number-3">2.3</span> Add files for distribution</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Next, you should allow yourself and your users to use your package by a simple
@@ -461,8 +468,8 @@ released under the GPL.
 </p>
 </div>
 </div>
-<div id="outline-container-org69c05b4" class="outline-3">
-<h3 id="org69c05b4"><span class="section-number-3">2.4</span> Release the software</h3>
+<div id="outline-container-org71dba4b" class="outline-3">
+<h3 id="org71dba4b"><span class="section-number-3">2.4</span> Release the software</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Releasing your software does not only mean that it is made available publicly.
@@ -496,17 +503,14 @@ it is a Python project, you can upload the new release to Anaconda and/or PyPI.
 </p>
 </div>
 </div>
-<div id="outline-container-orga6ff6cf" class="outline-3">
-<h3 id="orga6ff6cf"><span class="section-number-3">2.5</span> Further development</h3>
+<div id="outline-container-orgaf772f8" class="outline-3">
+<h3 id="orgaf772f8"><span class="section-number-3">2.5</span> Further development</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Now that your software is out in the public, making big changes to your software
-probably means breaking your users code.
-</p>
-
-<p>
-As a courtesy to your users, whenever you add, change or remove something add a
-line to your change log describing what is new.
+probably means breaking your users code. As a courtesy to your users, whenever
+you add, change or remove something add a line to your change log describing
+what is new.
 </p>
 
 <p>
@@ -521,8 +525,8 @@ is increased.
 </p>
 </div>
 </div>
-<div id="outline-container-org304d92a" class="outline-3">
-<h3 id="org304d92a"><span class="section-number-3">2.6</span> Putting theory to practice: converting your code to a software package</h3>
+<div id="outline-container-org0ef9cfe" class="outline-3">
+<h3 id="org0ef9cfe"><span class="section-number-3">2.6</span> Putting theory to practice: developing a Python a software package</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Instead of performing all the steps outlined above manually, the easiest way to
@@ -530,12 +534,202 @@ set up your project correctly is by using the <code>cookiecutter</code> template
 provide.
 </p>
 </div>
+
+<div id="outline-container-org70eb583" class="outline-4">
+<h4 id="org70eb583"><span class="section-number-4">2.6.1</span> Set up software project structure</h4>
+<div class="outline-text-4" id="text-2-6-1">
+<p>
+First, install <code>cookiecutter</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">pip install -U cookiecutter
+</pre>
+</div>
+<p>
+We provide a basic template for Python software packages. You can use this
+template to set up a new directory that contains all the files that were
+discussed in the previous sections, as well as a mock software project. You can
+then copy your code into the Python files that is generated by the template
+(for details on how to do this, see below). First, run the following command,
+and answer the questions that are asked.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">cookiecutter https://github.com/cicwi/cookiecutter-cicwi.git
+</pre>
+</div>
+<p>
+This will generate a directory with the name of your project. Next, you need to
+set up a new GitHub repository. We assume you have made such a repository, and
+that it resides at <a href="https://github.com/username/project">https://github.com/username/project</a>, and that the name of
+your project is <code>hsp</code>. Next we set up Git.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> hsp <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">replace with project name</span>
+git init
+git remote add github https://github.com/username/project
+</pre>
+</div>
+<p>
+To use the template, we require the installation of some dependencies and tools.
+We assume that you are inside a <code>conda</code> environment. You can install all the
+dependencies by running the following command.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">make install_dev install
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org76771e0" class="outline-4">
+<h4 id="org76771e0"><span class="section-number-4">2.6.2</span> Adding your code</h4>
+<div class="outline-text-4" id="text-2-6-2">
+<p>
+Now that everything is set up, we are ready to copy your code into the project.
+Typically, the code you want to share takes the form of a library. In
+particular, there are some classes and functions that others can make use of.
+Simply copy these classes and functions to <code>hsp/hsp.py</code>. This file contains the
+code for your library.
+</p>
+
+<p>
+It is a good idea to add a minimal example of how to use your library. This
+should somehow represent the core functionality of the software and should not
+be more than a couple of lines of code. For this, you can edit the file
+<code>examples/getting_started.py</code>. Your application code, that for example applies
+your library to data, can probably also be converted to an interesting example.
+You can add more scripts to the <code>examples/</code> directory showing more advanced
+usage of your library.
+</p>
+</div>
+</div>
+<div id="outline-container-org08f2272" class="outline-4">
+<h4 id="org08f2272"><span class="section-number-4">2.6.3</span> Creating an initial release</h4>
+<div class="outline-text-4" id="text-2-6-3">
+<p>
+Creating an initial release of your software consists of a number of simple
+steps. First, you should build the documentation by running:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">make docs
+</pre>
+</div>
+<p>
+and next add the files in <code>docs/</code> to your repository. Edit the file
+<code>CHANGELOG.md</code>, and add a release date to <code>v0.1.0</code> (change the YYYY-MM-DD).
+</p>
+
+<p>
+Next, we will publish the release on GitHub. Push all your changes. Next, go to
+your GitHub repository page, and click on the button saying <b>0 releases</b>, and
+next on <b>create a new release</b>. You are asked to provide three things
+</p>
+<ul class="org-ul">
+<li>The <i>tag version</i> should be v0.1.0.</li>
+<li>The <i>Release title</i> can be 'Initial release'.</li>
+<li>What to set as the description for this initial release is up to you, it can
+for example be one or two sentences about your project.</li>
+</ul>
+
+<p>
+It may be a good idea to mark your project as a pre-release until your are
+confident that it is widely usable. Finally, click <b>Public release</b>. GitHub will
+now create a new <i>tag</i> (but not a new commit) permanently marking this version
+of your code as <code>v0.1.0</code>. Optionally, you can immediately pull this tag to your
+local repository:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git pull --tags
+</pre>
+</div>
+<p>
+Next, we create a <code>conda</code> package:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">make conda_package
+</pre>
+</div>
+<p>
+If you have set up your account for Anaconda uploads, you can now upload the
+package, see the tail of the output of the previous command for instructions.
+This will provide potential users with an easy way to install your software.
+</p>
+</div>
+</div>
+<div id="outline-container-org2b8cf33" class="outline-4">
+<h4 id="org2b8cf33"><span class="section-number-4">2.6.4</span> Further development</h4>
+<div class="outline-text-4" id="text-2-6-4">
+<p>
+As time progresses, you will most likely continue the development of your
+software package. We recommend to release a minimal version of your software
+early, and to release updates often. Updates to software packages come in
+roughly three forms (with changes ranges from small to big). (1) <b>patches</b> are
+fixes of previously released functionality that do not work according to
+specifications. (2) <b>minor</b> updates add additional functionality, but old
+programs written on top of your software should still function. (3) <b>major</b>
+updates are those that can break existing code, by changing or removing
+behaviour of a previous release.
+</p>
+
+<p>
+As a service to your users, it is important to maintain <code>CHANGELOG.md</code>. Here,
+you document the main changes you have made since the previous release. This is
+done in the <i>Unreleased</i> section, that after a while may look like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-markdown"><span style="font-weight: bold;">##</span> <span style="font-weight: bold;">[Unreleased]</span>
+<span style="font-weight: bold;">###</span> <span style="font-weight: bold;">Added</span>
+<span style="font-weight: bold;">-</span> Add a function =hsp.myfunction=.
+<span style="font-weight: bold;">-</span> Add another function =hsp.myotherfunction=.
+
+<span style="font-weight: bold;">###</span> <span style="font-weight: bold;">Removed</span>
+<span style="font-weight: bold;">-</span> Remove obsolete function =hsp.myoldfunction=.
+
+<span style="font-weight: bold;">###</span> <span style="font-weight: bold;">Changed</span>
+<span style="font-weight: bold;">-</span> Change default value for argument =arg= of =hsp.fn= to =None=.
+</pre>
+</div>
+<p>
+This helps make releasing new version in the future much easier. If you decide
+to make a new version (again, this can already be done after a single patch: it
+is important not to hoard new functionality!) then it is like the initial
+release with the following changes. (1) you need to decide on a new version
+number <code>vX.Y.Z</code>. This is done according to the biggest change you have made. If
+this is a <b>patch</b>, <code>Z</code> is increased by one compared to the previous version, if
+it is a <b>minor</b> <code>Y</code> is increased by one, otherwise <code>X</code> is increased by one. This
+can be done automatically with any one of the following three commands:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">bumpversion patch <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">increase Z</span>
+bumpversion minor <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">increase Y</span>
+bumpversion major <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">increase X</span>
+</pre>
+</div>
+<p>
+Next, we update <code>CHANGELOG.md</code>. Change <code>[Unreleased]</code> to <code>[X.Y.Z] - YYYY-MM-DD</code>.
+Add a line at the end of the document that looks like this
+</p>
+<div class="org-src-container">
+<pre class="src src-markdown"><span style="font-weight: bold; text-decoration: underline;">[X.Y.Z]</span>: <span style="font-style: italic;">https://github.com/username/project/compare/vX.Y.Z...vA.B.C</span>
+</pre>
+</div>
+<p>
+W here <code>vA.B.C</code>  is the version number of the previous release. This allows users
+to click on the version number in the CHANGELOG and get an overview of all the
+code changes since the previous release.
+</p>
+
+<p>
+The remaining steps are as with the initial release. For a release <i>Description</i>
+you can simply copy the section of the CHANGELOG corresponding to the new version.
+</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jan-Willem Buurlage, Allard Hendriksen</p>
-<p class="date">Created: 2018-10-31 Wed 15:34</p>
+<p class="date">Created: 2018-11-01 Thu 13:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

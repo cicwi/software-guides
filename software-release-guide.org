@@ -240,59 +240,85 @@ be more than a couple of lines of code. For this, you can edit the file
 your library to data, can probably also be converted to an interesting example.
 You can add more scripts to the =examples/= directory showing more advanced
 usage of your library.
-*** Releasing 
-To release
-1. Update documentation
-   1. make docs
-2. Commit code
-3. Create release with bumpversion
-   1. =bumpversion major=
-   2. =bumpversion minor=
-   3. =bumpversion patch=
-4. Push to github
-5. Create release on GitHub
-6. Create GitHub pages documentation
-
-After release
-1. Maintain CHANGELOG
-
-**** Make commands
-
-The project comes with a default Makefile. The Makefile has a
-reasonable number of built-in commands.
-
-***** Development requirements
-Download and install development requirements into your current conda
-environment with
-#+BEGIN_SRC bash
-make install_dev
-#+END_SRC
-
-****** TODO this installs
-
-***** Install requirements
-Download and install your project requirements into your current conda
-environment with
-#+BEGIN_SRC bash
-make install
-#+END_SRC
-
-****** TODO this installs
-
-***** Update the documentation.
-Update your documentation with
+*** Creating an initial release
+Creating an initial release of your software consists of a number of simple
+steps. First, you should build the documentation by running:
 #+BEGIN_SRC bash
 make docs
 #+END_SRC
-***** Code formatting
-Automatically reformat the code of your project to a common format
-with
+and next add the files in =docs/= to your repository. Edit the file
+=CHANGELOG.md=, and add a release date to =v0.1.0= (change the YYYY-MM-DD).
+
+Next, we will publish the release on GitHub. Push all your changes. Next, go to
+your GitHub repository page, and click on the button saying *0 releases*, and
+next on *create a new release*. You are asked to provide three things
+- The /tag version/ should be v0.1.0.
+- The /Release title/ can be 'Initial release'.
+- What to set as the description for this initial release is up to you, it can
+  for example be one or two sentences about your project.
+
+It may be a good idea to mark your project as a pre-release until your are
+confident that it is widely usable. Finally, click *Public release*. GitHub will
+now create a new /tag/ (but not a new commit) permanently marking this version
+of your code as =v0.1.0=. Optionally, you can immediately pull this tag to your
+local repository:
 #+BEGIN_SRC bash
-make style
+git pull --tags
 #+END_SRC
-***** Build conda package
-The command
+Next, we create a =conda= package:
 #+BEGIN_SRC bash
 make conda_package
 #+END_SRC
-builds a conda package, which you can share on https://anaconda.org/.
+If you have set up your account for Anaconda uploads, you can now upload the
+package, see the tail of the output of the previous command for instructions.
+This will provide potential users with an easy way to install your software.
+*** Further development
+As time progresses, you will most likely continue the development of your
+software package. We recommend to release a minimal version of your software
+early, and to release updates often. Updates to software packages come in
+roughly three forms (with changes ranges from small to big). (1) *patches* are
+fixes of previously released functionality that do not work according to
+specifications. (2) *minor* updates add additional functionality, but old
+programs written on top of your software should still function. (3) *major*
+updates are those that can break existing code, by changing or removing
+behaviour of a previous release.
+
+As a service to your users, it is important to maintain =CHANGELOG.md=. Here,
+you document the main changes you have made since the previous release. This is
+done in the /Unreleased/ section, that after a while may look like this:
+#+BEGIN_SRC markdown
+## [Unreleased]
+### Added
+- Add a function =hsp.myfunction=.
+- Add another function =hsp.myotherfunction=.
+
+### Removed
+- Remove obsolete function =hsp.myoldfunction=.
+
+### Changed
+- Change default value for argument =arg= of =hsp.fn= to =None=.
+#+END_SRC
+This helps make releasing new version in the future much easier. If you decide
+to make a new version (again, this can already be done after a single patch: it
+is important not to hoard new functionality!) then it is like the initial
+release with the following changes. (1) you need to decide on a new version
+number =vX.Y.Z=. This is done according to the biggest change you have made. If
+this is a *patch*, =Z= is increased by one compared to the previous version, if
+it is a *minor* =Y= is increased by one, otherwise =X= is increased by one. This
+can be done automatically with any one of the following three commands:
+#+BEGIN_SRC bash
+bumpversion patch # increase Z
+bumpversion minor # increase Y
+bumpversion major # increase X
+#+END_SRC
+Next, we update =CHANGELOG.md=. Change =[Unreleased]= to =[X.Y.Z] - YYYY-MM-DD=.
+Add a line at the end of the document that looks like this
+#+BEGIN_SRC markdown
+[X.Y.Z]: https://github.com/username/project/compare/vX.Y.Z...vA.B.C
+#+END_SRC
+W here =vA.B.C=  is the version number of the previous release. This allows users
+to click on the version number in the CHANGELOG and get an overview of all the
+code changes since the previous release.
+
+The remaining steps are as with the initial release. For a release /Description/
+you can simply copy the section of the CHANGELOG corresponding to the new version.
