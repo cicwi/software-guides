@@ -289,14 +289,14 @@ done in the /Unreleased/ section, that after a while may look like this:
 #+BEGIN_SRC markdown
 ## [Unreleased]
 ### Added
-- Add a function =hsp.myfunction=.
-- Add another function =hsp.myotherfunction=.
+- Add a function `hsp.myfunction`.
+- Add another function `hsp.myotherfunction`.
 
 ### Removed
-- Remove obsolete function =hsp.myoldfunction=.
+- Remove obsolete function `hsp.myoldfunction`.
 
 ### Changed
-- Change default value for argument =arg= of =hsp.fn= to =None=.
+- Change default value for argument `arg` of `hsp.fn` to `None`.
 #+END_SRC
 This helps make releasing new version in the future much easier. If you decide
 to make a new version (again, this can already be done after a single patch: it
