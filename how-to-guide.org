@@ -3,16 +3,16 @@
 
 #+LaTeX_CLASS: book
 
-* Introduction
+* TODO Introduction
 * How-to
 ** Python
-*** Auto-format your code
+*** TODO Auto-format your code
 **** PEP8
 **** [[https://github.com/google/yapf][yapf]]
 ** C++
-*** Auto-format your code
+*** TODO Auto-format your code
 **** =clang-format=
-*** Using CMake to build your software
+*** TODO Use CMake to build your software
 **** C++ Weekly, [[https://www.youtube.com/watch?v=HPMvU64RUTY][Intro to CMake]]
 **** [[https://llvm.org/docs/CMakePrimer.html][CMakePrimer (LLVM)]]
 **** [[https://www.youtube.com/watch?v=eC9-iRN2b04][CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”]]
@@ -43,13 +43,13 @@ else()
 endif()
 #+END_SRC
 **** https://foonathan.net/blog/2018/10/17/cmake-warnings.html
-*** Use a good set of compile commands
+*** TODO Use a good set of compile commands
 **** Sensible compile flags
 ***** =-Wall=
 ***** =-Werror=
 ***** =-Wfatal=
 ***** ...
-*** Manage dynamic dependencies
+*** TODO Manage dynamic dependencies
 Three places that a binary looks for shared dependencies
 1. =LD_LIBRARY_PATH=
 2. =rpath= encoded in binary
@@ -121,17 +121,17 @@ add_subdirectory("python")
 #+END_SRC
 Now, the python bindings will be built alongside your project.
 ** General
-*** Write good documentation
+*** TODO Write good documentation
 - http://stevelosh.com/blog/2013/09/teach-dont-tell/
-*** Write good commit messages
+*** TODO Write good commit messages
 - http://chris.beams.io/posts/git-commit/
-*** Write a good readme
+*** TODO Write a good readme
 [[https://github.com/LappleApple/feedmereadmes/blob/master/README-maturity-model.md][This github repo]] contains a useful model of maturity levels for a
 project's README.md file. It defines both the current level of
 maturity of a README and gives pointers on how to improve.
-*** Set up your Git branches
+*** TODO Set up your Git branches
 - *Branching model*: http://nvie.com/posts/a-successful-git-branching-model/
-*** Use module systems
-*** Set up travis CI
+*** TODO Use module systems
+*** TODO Set up travis CI
 **** C++17
 **** travis.yml / Makefile
