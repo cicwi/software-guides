@@ -47,3 +47,6 @@ Contributions are very welcome. These can come in various forms, for example:
 
 We use the GitHub issue tracker. Please submit pull requests against the
 `master` branch.
+
+### Credits
+The [thi-ng/org-spec](https://github.com/thi-ng/org-spec) theme is provided by Karsten Schmidt (MIT license).
