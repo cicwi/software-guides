@@ -40,6 +40,9 @@ These guides were originally written by:
 - Jan-Willem Buurlage
 - Allard Hendriksen
 
+Also thanks to:
+- Adriaan Graas
+
 Contributions are very welcome. These can come in various forms, for example:
 - Opening an issue _(if something is unclear, or a command fails to run)_,
 - Providing small fixes (typos, ill-formed sentences, ...)
