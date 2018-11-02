@@ -8,6 +8,8 @@
 #+HTML_HEAD: <link href="css/style.css" rel="stylesheet" type="text/css" />
 #+LaTeX_CLASS: book
 
+#+TOC: headlines 3
+
 * TODO Introduction
 * How-to
 ** Python

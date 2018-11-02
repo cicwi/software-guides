@@ -7,6 +7,8 @@
 #+HTML_HEAD: <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
 #+HTML_HEAD: <link href="css/style.css" rel="stylesheet" type="text/css" />
 
+#+TOC: headlines 3
+
 * Introduction
 This document consists of two parts. In the first part, we suggest useful tools,
 a good project structure, and some further guidelines, for sharing your software
