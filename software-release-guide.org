@@ -322,7 +322,7 @@ bumpversion major # increase X
 Next, we update =CHANGELOG.md=. Change =[Unreleased]= to =[X.Y.Z] - YYYY-MM-DD=.
 Add a line at the end of the document that looks like this
 #+BEGIN_SRC markdown
-[X.Y.Z]: https://github.com/username/project/compare/vX.Y.Z...vA.B.C
+[X.Y.Z]: https://github.com/username/project/compare/vA.B.C...vX.Y.Z
 #+END_SRC
 W here =vA.B.C=  is the version number of the previous release. This allows users
 to click on the version number in the CHANGELOG and get an overview of all the
