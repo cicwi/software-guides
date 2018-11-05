@@ -166,7 +166,7 @@ released under the GPL.
 ** Release the software
 Releasing your software does not only mean that it is made available publicly.
 It means to provide a fixed, frozen version of the code that has no known bugs,
-and to assign it a version number. An initial version number can be =v0.0.1=.
+and to assign it a version number. An initial version number can be =v0.1.0=.
 
 This is an important service to your potential users, because it gives them a
 predictable state of your code to fall back on. If you decide to further develop
@@ -177,7 +177,7 @@ This brings us to another important file, the release notes, which are contained
 in a file =CHANGELOG.md=. For the initial release, this file does not much
 information. Maybe a notice that it is the first public release, and the date at
 which it is published. However, as you add, amend, and change your software, you
-may want to release a next version, say =v0.0.2=. In the release notes, you can
+may want to release a next version, say =v0.2.0=. In the release notes, you can
 let the user know what has changed, and they should be able to see immediately
 if they should expect any difficulties when upgrading to the new version.
 
