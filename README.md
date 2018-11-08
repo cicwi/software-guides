@@ -51,5 +51,7 @@ Contributions are very welcome. These can come in various forms, for example:
 We use the GitHub issue tracker. Please submit pull requests against the
 `master` branch.
 
+To submit a pull request, first fork the repository to your own account. Make the changes as usual, and push them to your own version of the repository. After that, open a pull request so that we can discuss your changes!
+
 ### Credits
 The [thi-ng/org-spec](https://github.com/thi-ng/org-spec) theme is provided by Karsten Schmidt (MIT license).
