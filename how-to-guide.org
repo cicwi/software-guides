@@ -128,6 +128,42 @@ add_subdirectory("python")
 #+END_SRC
 Now, the python bindings will be built alongside your project.
 ** General
+*** Contribute to someone else's project
+Having a common software repository helps us to share and use code from other members, but also contribute to them. This implies obtaining the source code (and not the compiled binaries or the conda package) from Github and commit the changes. Obviously, commiting changes comports a risk of introducing bug or unwanted features for the software. You should therefore commit your changes in a separate branch and open a merge request. After inspection, your changes will eventually be accepted and incorporated into the main branch. 
+Let us now describe this procedure step by step.
+
+First, checkout the source code and cd to this directory.
+#+BEGIN_SRC tmux
+git pull git@gitlab.com:tomo-ml/msd_pytorch.git
+cd ~/projects/msd_pytorch/
+#+END_SRC
+
+Change something:
+#+BEGIN_SRC tmux
+touch atoha
+#+END_SRC
+
+Stage file:
+#+BEGIN_SRC tmux
+git add atoha
+#+END_SRC
+
+#+BEGIN_SRC tmux
+git checkout -b henribranch
+#+END_SRC
+
+#+BEGIN_SRC
+git commit -m "For Henri"
+#+END_SRC
+
+#+BEGIN_SRC tmux
+git push origin henribranch
+#+END_SRC
+
+Open the link that is displayed, in this case
+https://gitlab.com/tomo-ml/msd_pytorch/merge_requests/new/henribranch.
+Describe your changes, then finally click submit merge request.
+
 *** TODO Write good documentation
 - http://stevelosh.com/blog/2013/09/teach-dont-tell/
 *** TODO Write good commit messages
