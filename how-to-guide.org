@@ -128,6 +128,42 @@ add_subdirectory("python")
 #+END_SRC
 Now, the python bindings will be built alongside your project.
 ** General
+*** Contribute to someone else's project
+
+Having a common software repository helps us to share and use code from other members, but also contribute to them. This implies obtaining the source code (and not the compiled binaries or the conda package) from Github and commit the changes. Obviously, commiting changes comports a risk of introducing bug or unwanted features for the software. You should therefore commit your changes in a separate branch and open a pull request. After inspection, your changes will eventually be accepted and incorporated into the main branch. 
+Let us now describe this procedure step by step.
+
+First, checkout the source code and cd to this directory.
+#+BEGIN_SRC bash
+git git@github.com:cicwi/RECAST3D.git
+cd ~/projects/recast3d/
+#+END_SRC
+
+Change something:
+#+BEGIN_SRC bash
+touch some_file_to_add
+#+END_SRC
+
+Stage file:
+#+BEGIN_SRC bash
+git add some_file_to_add
+#+END_SRC
+
+#+BEGIN_SRC bash
+git checkout -b reverse_polarity
+#+END_SRC
+
+#+BEGIN_SRC bash
+git commit -m "Reverse the polarity of neutron flow"
+#+END_SRC
+
+#+BEGIN_SRC bash
+git push origin reverse_neutron_flow
+#+END_SRC
+
+Visit the project page on GitHub, and in the tab /Pull requests/ click on /New pull request/. For more information about pull requests, see https://help.github.com/articles/about-pull-requests/.
+
+
 *** TODO Write good documentation
 - http://stevelosh.com/blog/2013/09/teach-dont-tell/
 *** TODO Write good commit messages
