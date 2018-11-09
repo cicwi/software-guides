@@ -42,6 +42,7 @@ These guides were originally written by:
 
 Also thanks to:
 - Adriaan Graas
+- Henri Der Sarkissian
 
 Contributions are very welcome. These can come in various forms, for example:
 - Opening an issue _(if something is unclear, or a command fails to run)_,
