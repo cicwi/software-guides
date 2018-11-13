@@ -156,7 +156,7 @@ git push origin reverse_neutron_flow
 
 Visit the project page on GitHub, and in the tab /Pull requests/ click on /New pull request/. For more information about pull requests, see https://help.github.com/articles/about-pull-requests/.
 *** Record an animated GIF of your screen
-For recording animated GIFs of a region of your screen, you can use peek
+For recording animated GIFs of a region of your screen, you can use Peek
 <https://github.com/phw/peek>. The easiest way to get it to run on a CWI
 workstation is by using an AppImage of a recent release, which you can get from
 the releases page <https://github.com/phw/peek/releases>.
