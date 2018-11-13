@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-11-02 Fri 15:52 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2018-11-13 Tue 15:37 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How-to Software Guide (CWI CI Group)</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="Jan-Willem Buurlage, Allard Hendriksen">
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Jan-Willem Buurlage, Allard Hendriksen" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -178,8 +180,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -234,31 +234,33 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org68f5480">1. <span class="todo TODO">TODO</span> Introduction</a></li>
-<li><a href="#org2c9619f">2. How-to</a>
+<li><a href="#orgbfb8e87">1. <span class="todo TODO">TODO</span> Introduction</a></li>
+<li><a href="#org1d5efb5">2. How-to</a>
 <ul>
-<li><a href="#org4009095">2.1. Python</a>
+<li><a href="#org500a1d6">2.1. Python</a>
 <ul>
-<li><a href="#org00ab8eb">2.1.1. <span class="todo TODO">TODO</span> Auto-format your code</a></li>
+<li><a href="#orga657a79">2.1.1. <span class="todo TODO">TODO</span> Auto-format your code</a></li>
 </ul>
 </li>
-<li><a href="#orga63366d">2.2. C++</a>
+<li><a href="#org81d99f7">2.2. C++</a>
 <ul>
-<li><a href="#orgb6a0978">2.2.1. <span class="todo TODO">TODO</span> Auto-format your code</a></li>
-<li><a href="#orgb2064ee">2.2.2. <span class="todo TODO">TODO</span> Use CMake to build your software</a></li>
-<li><a href="#org49e61e8">2.2.3. <span class="todo TODO">TODO</span> Use a good set of compile commands</a></li>
-<li><a href="#orgeae2029">2.2.4. <span class="todo TODO">TODO</span> Manage dynamic dependencies</a></li>
-<li><a href="#org0c0e889">2.2.5. Create Python bindings using <code>pybind11</code></a></li>
+<li><a href="#org7fc7f9f">2.2.1. <span class="todo TODO">TODO</span> Auto-format your code</a></li>
+<li><a href="#org06ad6ef">2.2.2. <span class="todo TODO">TODO</span> Use CMake to build your software</a></li>
+<li><a href="#org2d1cd10">2.2.3. <span class="todo TODO">TODO</span> Use a good set of compile commands</a></li>
+<li><a href="#org06eb635">2.2.4. <span class="todo TODO">TODO</span> Manage dynamic dependencies</a></li>
+<li><a href="#orgdb22724">2.2.5. Create Python bindings using <code>pybind11</code></a></li>
 </ul>
 </li>
-<li><a href="#org8f8710c">2.3. General</a>
+<li><a href="#org8ae16a7">2.3. General</a>
 <ul>
-<li><a href="#org0761168">2.3.1. <span class="todo TODO">TODO</span> Write good documentation</a></li>
-<li><a href="#org3798810">2.3.2. <span class="todo TODO">TODO</span> Write good commit messages</a></li>
-<li><a href="#org26fe0dd">2.3.3. <span class="todo TODO">TODO</span> Write a good readme</a></li>
-<li><a href="#org08081ae">2.3.4. <span class="todo TODO">TODO</span> Set up your Git branches</a></li>
-<li><a href="#org166a73c">2.3.5. <span class="todo TODO">TODO</span> Use module systems</a></li>
-<li><a href="#org164116c">2.3.6. <span class="todo TODO">TODO</span> Set up travis CI</a></li>
+<li><a href="#orgcbea62b">2.3.1. Contribute to someone else's project</a></li>
+<li><a href="#orgd08128b">2.3.2. Record an animated GIF of your screen</a></li>
+<li><a href="#orge8f3a4c">2.3.3. <span class="todo TODO">TODO</span> Write good documentation</a></li>
+<li><a href="#orgab0c3a5">2.3.4. <span class="todo TODO">TODO</span> Write good commit messages</a></li>
+<li><a href="#org9a6c451">2.3.5. <span class="todo TODO">TODO</span> Write a good readme</a></li>
+<li><a href="#org68e06c6">2.3.6. <span class="todo TODO">TODO</span> Set up your Git branches</a></li>
+<li><a href="#org369bbf0">2.3.7. <span class="todo TODO">TODO</span> Use module systems</a></li>
+<li><a href="#org66bc248">2.3.8. <span class="todo TODO">TODO</span> Set up travis CI</a></li>
 </ul>
 </li>
 </ul>
@@ -267,111 +269,99 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org68f5480" class="outline-2">
-<h2 id="org68f5480"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> Introduction</h2>
+<div id="outline-container-orgbfb8e87" class="outline-2">
+<h2 id="orgbfb8e87"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> Introduction</h2>
 </div>
-<div id="outline-container-org2c9619f" class="outline-2">
-<h2 id="org2c9619f"><span class="section-number-2">2</span> How-to</h2>
+<div id="outline-container-org1d5efb5" class="outline-2">
+<h2 id="org1d5efb5"><span class="section-number-2">2</span> How-to</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org4009095" class="outline-3">
-<h3 id="org4009095"><span class="section-number-3">2.1</span> Python</h3>
+<div id="outline-container-org500a1d6" class="outline-3">
+<h3 id="org500a1d6"><span class="section-number-3">2.1</span> Python</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org00ab8eb" class="outline-4">
-<h4 id="org00ab8eb"><span class="section-number-4">2.1.1</span> <span class="todo TODO">TODO</span> Auto-format your code</h4>
+<div id="outline-container-orga657a79" class="outline-4">
+<h4 id="orga657a79"><span class="section-number-4">2.1.1</span> <span class="todo TODO">TODO</span> Auto-format your code</h4>
 <div class="outline-text-4" id="text-2-1-1">
 </div>
-<div id="outline-container-org89406b9" class="outline-5">
-<h5 id="org89406b9"><span class="section-number-5">2.1.1.1</span> PEP8</h5>
-</div>
-<div id="outline-container-orgfba1a5a" class="outline-5">
-<h5 id="orgfba1a5a"><span class="section-number-5">2.1.1.2</span> <a href="https://github.com/google/yapf">yapf</a></h5>
-</div>
+<ol class="org-ol">
+<li><a id="orgccfd465"></a>PEP8<br /></li>
+<li><a id="orgfd9b6f3"></a><a href="https://github.com/google/yapf">yapf</a><br /></li>
+</ol>
 </div>
 </div>
-<div id="outline-container-orga63366d" class="outline-3">
-<h3 id="orga63366d"><span class="section-number-3">2.2</span> C++</h3>
+<div id="outline-container-org81d99f7" class="outline-3">
+<h3 id="org81d99f7"><span class="section-number-3">2.2</span> C++</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orgb6a0978" class="outline-4">
-<h4 id="orgb6a0978"><span class="section-number-4">2.2.1</span> <span class="todo TODO">TODO</span> Auto-format your code</h4>
+<div id="outline-container-org7fc7f9f" class="outline-4">
+<h4 id="org7fc7f9f"><span class="section-number-4">2.2.1</span> <span class="todo TODO">TODO</span> Auto-format your code</h4>
 <div class="outline-text-4" id="text-2-2-1">
 </div>
-<div id="outline-container-org8171892" class="outline-5">
-<h5 id="org8171892"><span class="section-number-5">2.2.1.1</span> <code>clang-format</code></h5>
+<ol class="org-ol">
+<li><a id="org14fc9e3"></a><code>clang-format</code><br /></li>
+</ol>
 </div>
-</div>
-<div id="outline-container-orgb2064ee" class="outline-4">
-<h4 id="orgb2064ee"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> Use CMake to build your software</h4>
+<div id="outline-container-org06ad6ef" class="outline-4">
+<h4 id="org06ad6ef"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> Use CMake to build your software</h4>
 <div class="outline-text-4" id="text-2-2-2">
 </div>
-<div id="outline-container-orgb58a25a" class="outline-5">
-<h5 id="orgb58a25a"><span class="section-number-5">2.2.2.1</span> C++ Weekly, <a href="https://www.youtube.com/watch?v=HPMvU64RUTY">Intro to CMake</a></h5>
-</div>
-<div id="outline-container-org8ed06eb" class="outline-5">
-<h5 id="org8ed06eb"><span class="section-number-5">2.2.2.2</span> <a href="https://llvm.org/docs/CMakePrimer.html">CMakePrimer (LLVM)</a></h5>
-</div>
-<div id="outline-container-orgde00c3d" class="outline-5">
-<h5 id="orgde00c3d"><span class="section-number-5">2.2.2.3</span> <a href="https://www.youtube.com/watch?v=eC9-iRN2b04">CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”</a></h5>
-</div>
-<div id="outline-container-orgd780abc" class="outline-5">
-<h5 id="orgd780abc"><span class="section-number-5">2.2.2.4</span> <a href="https://www.youtube.com/watch?v=bsXLMQ6WgIk">C++Now 2017: Daniel Pfeifer “Effective CMake"</a></h5>
-</div>
-<div id="outline-container-orgbb10a1a" class="outline-5">
-<h5 id="orgbb10a1a"><span class="section-number-5">2.2.2.5</span> <a href="https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html">Dependency management CMake/Git</a></h5>
+<ol class="org-ol">
+<li><a id="org8bead2f"></a>C++ Weekly, <a href="https://www.youtube.com/watch?v=HPMvU64RUTY">Intro to CMake</a><br /></li>
+<li><a id="orge59d51c"></a><a href="https://llvm.org/docs/CMakePrimer.html">CMakePrimer (LLVM)</a><br /></li>
+<li><a id="org5796a31"></a><a href="https://www.youtube.com/watch?v=eC9-iRN2b04">CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”</a><br /></li>
+<li><a id="org6db3b3d"></a><a href="https://www.youtube.com/watch?v=bsXLMQ6WgIk">C++Now 2017: Daniel Pfeifer “Effective CMake"</a><br /></li>
+<li><a id="orgdb14e33"></a><a href="https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html">Dependency management CMake/Git</a><br />
 <div class="outline-text-5" id="text-2-2-2-5">
 <p>
 Example:
 </p>
 <div class="org-src-container">
-<pre class="src src-cmake"><span style="color: #bc6ec5; font-weight: bold;">find_package</span><span style="color: #4f97d7;">(</span>ZeroMQ QUIET<span style="color: #4f97d7;">)</span>
+<pre class="src src-cmake">find_package(ZeroMQ QUIET)
 
-<span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">(</span>ZeroMQ_FOUND<span style="color: #4f97d7;">)</span>
-    <span style="color: #bc6ec5; font-weight: bold;">add_library</span><span style="color: #4f97d7;">(</span>zmq INTERFACE<span style="color: #4f97d7;">)</span>
-    <span style="color: #bc6ec5; font-weight: bold;">target_include_directories</span><span style="color: #4f97d7;">(</span>zmq INTERFACE $<span style="color: #bc6ec5;">{</span><span style="color: #7590db;">ZeroMQ_INCLUDE_DIR</span><span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span>
-    <span style="color: #bc6ec5; font-weight: bold;">target_link_libraries</span><span style="color: #4f97d7;">(</span>zmq INTERFACE $<span style="color: #bc6ec5;">{</span><span style="color: #7590db;">ZeroMQ_LIBRARY</span><span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7; font-weight: bold;">else</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">)</span>
-    <span style="color: #bc6ec5; font-weight: bold;">message</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"'zmq' not installed on the system, building from source..."</span><span style="color: #4f97d7;">)</span>
+if (ZeroMQ_FOUND)
+    add_library(zmq INTERFACE)
+    target_include_directories(zmq INTERFACE ${ZeroMQ_INCLUDE_DIR})
+    target_link_libraries(zmq INTERFACE ${ZeroMQ_LIBRARY})
+else()
+    message("'zmq' not installed on the system, building from source...")
 
-    <span style="color: #bc6ec5; font-weight: bold;">execute_process</span><span style="color: #4f97d7;">(</span>COMMAND git submodule update --init --remote -- ext/libzmq
-        WORKING_DIRECTORY $<span style="color: #bc6ec5;">{</span><span style="color: #7590db;">CMAKE_SOURCE_DIR</span><span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span>
+    execute_process(COMMAND git submodule update --init --remote -- ext/libzmq
+	WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
-    <span style="color: #bc6ec5; font-weight: bold;">set</span><span style="color: #4f97d7;">(</span>ZMQ_BUILD_TESTS OFF CACHE BOOL <span style="color: #2d9574;">"disable tests"</span> FORCE<span style="color: #4f97d7;">)</span>
-    <span style="color: #bc6ec5; font-weight: bold;">set</span><span style="color: #4f97d7;">(</span>WITH_PERF_TOOL OFF CACHE BOOL <span style="color: #2d9574;">"disable perf-tools"</span> FORCE<span style="color: #4f97d7;">)</span>
-    <span style="color: #bc6ec5; font-weight: bold;">add_subdirectory</span><span style="color: #4f97d7;">(</span>$<span style="color: #bc6ec5;">{</span><span style="color: #7590db;">CMAKE_SOURCE_DIR</span><span style="color: #bc6ec5;">}</span>/ext/libzmq<span style="color: #4f97d7;">)</span>
-    <span style="color: #bc6ec5; font-weight: bold;">set</span><span style="color: #4f97d7;">(</span>ZMQ_INCLUDE_DIR $<span style="color: #bc6ec5;">{</span><span style="color: #7590db;">CMAKE_SOURCE_DIR</span><span style="color: #bc6ec5;">}</span>/ext/libzmq/include<span style="color: #4f97d7;">)</span>
+    set(ZMQ_BUILD_TESTS OFF CACHE BOOL "disable tests" FORCE)
+    set(WITH_PERF_TOOL OFF CACHE BOOL "disable perf-tools" FORCE)
+    add_subdirectory(${CMAKE_SOURCE_DIR}/ext/libzmq)
+    set(ZMQ_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/ext/libzmq/include)
 
-    <span style="color: #2aa1ae; background-color: #292e34;"># ZeroMQ names their target libzmq, which is inconsistent =&gt; create a ghost dependency</span>
-    <span style="color: #bc6ec5; font-weight: bold;">add_library</span><span style="color: #4f97d7;">(</span>zmq INTERFACE<span style="color: #4f97d7;">)</span>
-    <span style="color: #bc6ec5; font-weight: bold;">target_link_libraries</span><span style="color: #4f97d7;">(</span>zmq INTERFACE libzmq<span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7; font-weight: bold;">endif</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">)</span>
+    # ZeroMQ names their target libzmq, which is inconsistent =&gt; create a ghost dependency
+    add_library(zmq INTERFACE)
+    target_link_libraries(zmq INTERFACE libzmq)
+endif()
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-orgb22fa88" class="outline-5">
-<h5 id="orgb22fa88"><span class="section-number-5">2.2.2.6</span> <a href="https://foonathan.net/blog/2018/10/17/cmake-warnings.html">https://foonathan.net/blog/2018/10/17/cmake-warnings.html</a></h5>
-</div>
-</div>
-<div id="outline-container-org49e61e8" class="outline-4">
-<h4 id="org49e61e8"><span class="section-number-4">2.2.3</span> <span class="todo TODO">TODO</span> Use a good set of compile commands</h4>
-<div class="outline-text-4" id="text-2-2-3">
-</div>
-<div id="outline-container-org1fb6591" class="outline-5">
-<h5 id="org1fb6591"><span class="section-number-5">2.2.3.1</span> Sensible compile flags</h5>
-<div class="outline-text-5" id="text-2-2-3-1">
-</div>
-<ol class="org-ol">
-<li><a id="org33597d8"></a><code>-Wall</code><br></li>
-<li><a id="org970a3f2"></a><code>-Werror</code><br></li>
-<li><a id="orgbd3018f"></a><code>-Wfatal</code><br></li>
-<li><a id="org061e84d"></a>&#x2026;<br></li>
+</li>
+<li><a id="org8f7e377"></a><a href="https://foonathan.net/blog/2018/10/17/cmake-warnings.html">https://foonathan.net/blog/2018/10/17/cmake-warnings.html</a><br /></li>
 </ol>
 </div>
+<div id="outline-container-org2d1cd10" class="outline-4">
+<h4 id="org2d1cd10"><span class="section-number-4">2.2.3</span> <span class="todo TODO">TODO</span> Use a good set of compile commands</h4>
+<div class="outline-text-4" id="text-2-2-3">
 </div>
-<div id="outline-container-orgeae2029" class="outline-4">
-<h4 id="orgeae2029"><span class="section-number-4">2.2.4</span> <span class="todo TODO">TODO</span> Manage dynamic dependencies</h4>
+<ol class="org-ol">
+<li><a id="org36e819b"></a>Sensible compile flags<br />
+<ol class="org-ol">
+<li><a id="org0c89ded"></a><code>-Wall</code><br /></li>
+<li><a id="orgc09d21b"></a><code>-Werror</code><br /></li>
+<li><a id="org7a98ea3"></a><code>-Wfatal</code><br /></li>
+<li><a id="org8c14557"></a>&#x2026;<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org06eb635" class="outline-4">
+<h4 id="org06eb635"><span class="section-number-4">2.2.4</span> <span class="todo TODO">TODO</span> Manage dynamic dependencies</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <p>
 Three places that a binary looks for shared dependencies
@@ -411,8 +401,8 @@ See also: <a href="https://www.eyrie.org/~eagle/notes/rpath.html">https://www.ey
 </p>
 </div>
 </div>
-<div id="outline-container-org0c0e889" class="outline-4">
-<h4 id="org0c0e889"><span class="section-number-4">2.2.5</span> Create Python bindings using <code>pybind11</code></h4>
+<div id="outline-container-orgdb22724" class="outline-4">
+<h4 id="orgdb22724"><span class="section-number-4">2.2.5</span> Create Python bindings using <code>pybind11</code></h4>
 <div class="outline-text-4" id="text-2-2-5">
 <p>
 Adding Python bindings to C++ code is straightforward with pybind11. A good
@@ -420,119 +410,190 @@ setup is as follows. (All relative to the root folder of the C++ project, which
 I call <code>your_project</code> here)
 </p>
 </div>
-<div id="outline-container-org06e44a6" class="outline-5">
-<h5 id="org06e44a6"><span class="section-number-5">2.2.5.1</span> Add pybind11 as a git submodule</h5>
+<ol class="org-ol">
+<li><a id="orgc4798c7"></a>Add pybind11 as a git submodule<br />
 <div class="outline-text-5" id="text-2-2-5-1">
 <div class="org-src-container">
 <pre class="src src-bash">git submodule add https://github.com/pybind/pybind11.git ext/pybind11
 </pre>
 </div>
 </div>
-</div>
-<div id="outline-container-org56b0bca" class="outline-5">
-<h5 id="org56b0bca"><span class="section-number-5">2.2.5.2</span> Set up the Python bindings</h5>
+</li>
+<li><a id="org4275713"></a>Set up the Python bindings<br />
 <div class="outline-text-5" id="text-2-2-5-2">
 <p>
 Make a directory <code>python</code>, containing at least three files:
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgcc48e10"></a><code>python/src/module.cpp</code><br>
+<li><a id="orgfc798c4"></a><code>python/src/module.cpp</code><br />
 <div class="outline-text-6" id="text-2-2-5-2-1">
 <p>
 This contains the actual bindings, an example is like this:
 </p>
 <div class="org-src-container">
-<pre class="src src-cpp"><span style="color: #bc6ec5;">#include</span> <span style="color: #4f97d7;">&lt;</span><span style="color: #2d9574;">pybind11/pybind11.h</span><span style="color: #4f97d7;">&gt;</span>
-<span style="color: #4f97d7; font-weight: bold;">namespace</span> <span style="color: #a45bad;">py</span> = pybind11;
+<pre class="src src-cpp"><span style="font-weight: bold;">#include</span> <span style="font-style: italic;">&lt;pybind11/pybind11.h&gt;</span>
+<span style="font-weight: bold;">namespace</span> <span style="font-weight: bold; text-decoration: underline;">py</span> = pybind11;
 
-<span style="color: #bc6ec5;">#include</span> <span style="color: #2d9574;">"your_project/your_project.hpp"</span>
+<span style="font-weight: bold;">#include</span> <span style="font-style: italic;">"your_project/your_project.hpp"</span>
 
-<span style="color: #4f97d7; font-weight: bold;">using</span> <span style="color: #4f97d7; font-weight: bold;">namespace</span> <span style="color: #a45bad;">your_project</span>;
+<span style="font-weight: bold;">using</span> <span style="font-weight: bold;">namespace</span> <span style="font-weight: bold; text-decoration: underline;">your_project</span>;
 
-<span style="color: #bc6ec5; font-weight: bold;">PYBIND11_MODULE</span><span style="color: #4f97d7;">(</span>py_your_project, m<span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
-    m.doc<span style="color: #bc6ec5;">(</span><span style="color: #bc6ec5;">)</span> = <span style="color: #2d9574;">"bindings for your_project"</span>;
+<span style="font-weight: bold;">PYBIND11_MODULE</span>(py_your_project, m) {
+    m.doc() = <span style="font-style: italic;">"bindings for your_project"</span>;
 
-    <span style="color: #a45bad;">py</span>::class_<span style="color: #bc6ec5;">&lt;</span><span style="color: #a45bad;">your_project</span>::object<span style="color: #bc6ec5;">&gt;</span><span style="color: #bc6ec5;">(</span>m, <span style="color: #2d9574;">"object"</span><span style="color: #bc6ec5;">)</span>;
-<span style="color: #4f97d7;">}</span>
+    <span style="font-weight: bold; text-decoration: underline;">py</span>::class_&lt;<span style="font-weight: bold; text-decoration: underline;">your_project</span>::object&gt;(m, <span style="font-style: italic;">"object"</span>);
+}
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org736da08"></a><code>python/your_project/__init__.py</code><br>
+<li><a id="orgdcb1724"></a><code>python/your_project/__init__.py</code><br />
 <div class="outline-text-6" id="text-2-2-5-2-2">
 <p>
 The entry point for the Python specific code of your project. Also reexports
 symbols from the generated bindings.
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">from</span> py_your_project <span style="color: #4f97d7; font-weight: bold;">import</span> *
+<pre class="src src-python"><span style="font-weight: bold;">from</span> py_your_project <span style="font-weight: bold;">import</span> *
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org55fbae9"></a><code>python/CMakeLists.txt</code><br>
+<li><a id="orge03c0ab"></a><code>python/CMakeLists.txt</code><br />
 <div class="outline-text-6" id="text-2-2-5-2-3">
 <p>
 You can build the bindings using CMake.
 </p>
 <div class="org-src-container">
-<pre class="src src-cmake"><span style="color: #bc6ec5; font-weight: bold;">set</span><span style="color: #4f97d7;">(</span>BINDING_NAME <span style="color: #2d9574;">"py_your_project"</span><span style="color: #4f97d7;">)</span>
-<span style="color: #bc6ec5; font-weight: bold;">set</span><span style="color: #4f97d7;">(</span>BINDING_SOURCES <span style="color: #2d9574;">"src/module.cpp"</span><span style="color: #4f97d7;">)</span>
+<pre class="src src-cmake">set(BINDING_NAME "py_your_project")
+set(BINDING_SOURCES "src/module.cpp")
 
-<span style="color: #bc6ec5; font-weight: bold;">set</span><span style="color: #4f97d7;">(</span>CMAKE_LIBRARY_OUTPUT_DIRECTORY <span style="color: #2d9574;">"${</span><span style="color: #7590db;">CMAKE_CURRENT_SOURCE_DIR</span><span style="color: #2d9574;">}"</span><span style="color: #4f97d7;">)</span>
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
 
-<span style="color: #bc6ec5; font-weight: bold;">pybind11_add_module</span><span style="color: #4f97d7;">(</span>$<span style="color: #bc6ec5;">{</span><span style="color: #7590db;">BINDING_NAME</span><span style="color: #bc6ec5;">}</span> $<span style="color: #bc6ec5;">{</span><span style="color: #7590db;">BINDING_SOURCES</span><span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span>
+pybind11_add_module(${BINDING_NAME} ${BINDING_SOURCES})
 
-<span style="color: #bc6ec5; font-weight: bold;">target_link_libraries</span><span style="color: #4f97d7;">(</span>$<span style="color: #bc6ec5;">{</span><span style="color: #7590db;">BINDING_NAME</span><span style="color: #bc6ec5;">}</span> PRIVATE your_project<span style="color: #4f97d7;">)</span>
+target_link_libraries(${BINDING_NAME} PRIVATE your_project)
 </pre>
 </div>
 </div>
 </li>
 </ol>
-</div>
-<div id="outline-container-orgab036be" class="outline-5">
-<h5 id="orgab036be"><span class="section-number-5">2.2.5.3</span> Add it as a subdirectory</h5>
+</li>
+<li><a id="orgfb359c9"></a>Add it as a subdirectory<br />
 <div class="outline-text-5" id="text-2-2-5-3">
 <p>
 In the main <code>CMakeLists.txt</code> of your project, add the Python folder:
 </p>
 <div class="org-src-container">
 <pre class="src src-cmake">...
-<span style="color: #bc6ec5; font-weight: bold;">add_subdirectory</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"ext/pybind11"</span><span style="color: #4f97d7;">)</span>
-<span style="color: #bc6ec5; font-weight: bold;">add_subdirectory</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"python"</span><span style="color: #4f97d7;">)</span>
+add_subdirectory("ext/pybind11")
+add_subdirectory("python")
 </pre>
 </div>
 <p>
 Now, the python bindings will be built alongside your project.
 </p>
 </div>
+</li>
+</ol>
 </div>
 </div>
-</div>
-<div id="outline-container-org8f8710c" class="outline-3">
-<h3 id="org8f8710c"><span class="section-number-3">2.3</span> General</h3>
+<div id="outline-container-org8ae16a7" class="outline-3">
+<h3 id="org8ae16a7"><span class="section-number-3">2.3</span> General</h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-org0761168" class="outline-4">
-<h4 id="org0761168"><span class="section-number-4">2.3.1</span> <span class="todo TODO">TODO</span> Write good documentation</h4>
+<div id="outline-container-orgcbea62b" class="outline-4">
+<h4 id="orgcbea62b"><span class="section-number-4">2.3.1</span> Contribute to someone else's project</h4>
 <div class="outline-text-4" id="text-2-3-1">
+<p>
+Having a common software repository helps us to share and use code from other members, but also contribute to them. This implies obtaining the source code (and not the compiled binaries or the conda package) from Github and commit the changes. Obviously, commiting changes comports a risk of introducing bug or unwanted features for the software. You should therefore commit your changes in a separate branch and open a pull request. After inspection, your changes will eventually be accepted and incorporated into the main branch. 
+Let us now describe this procedure step by step.
+</p>
+
+<p>
+First, checkout the source code and cd to this directory.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git git@github.com:cicwi/RECAST3D.git
+<span style="font-weight: bold;">cd</span> ~/projects/recast3d/
+</pre>
+</div>
+
+<p>
+Change something:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">touch some_file_to_add
+</pre>
+</div>
+
+<p>
+Stage file:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git add some_file_to_add
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash">git checkout -b reverse_polarity
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash">git commit -m <span style="font-style: italic;">"Reverse the polarity of neutron flow"</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-bash">git push origin reverse_neutron_flow
+</pre>
+</div>
+
+<p>
+Visit the project page on GitHub, and in the tab <i>Pull requests</i> click on <i>New pull request</i>. For more information about pull requests, see <a href="https://help.github.com/articles/about-pull-requests/">https://help.github.com/articles/about-pull-requests/</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd08128b" class="outline-4">
+<h4 id="orgd08128b"><span class="section-number-4">2.3.2</span> Record an animated GIF of your screen</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<p>
+For recording animated GIFs of a region of your screen, you can use peek
+<a href="https://github.com/phw/peek">https://github.com/phw/peek</a>. The easiest way to get it to run on a CWI
+workstation is by using an AppImage of a recent release, which you can get from
+the releases page <a href="https://github.com/phw/peek/releases">https://github.com/phw/peek/releases</a>.
+</p>
+
+<p>
+After downloading, make the file executable (either using your file manager, or
+by calling <code>chmod +x [peek_release.AppImage]</code> from a terminal). Now you can run
+Peek, which has a straightforward interface: resize the Peek window and click on
+record, after three seconds it will start recording the region of your screen
+that is visible.
+</p>
+</div>
+</div>
+<div id="outline-container-orge8f3a4c" class="outline-4">
+<h4 id="orge8f3a4c"><span class="section-number-4">2.3.3</span> <span class="todo TODO">TODO</span> Write good documentation</h4>
+<div class="outline-text-4" id="text-2-3-3">
 <ul class="org-ul">
 <li><a href="http://stevelosh.com/blog/2013/09/teach-dont-tell/">http://stevelosh.com/blog/2013/09/teach-dont-tell/</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3798810" class="outline-4">
-<h4 id="org3798810"><span class="section-number-4">2.3.2</span> <span class="todo TODO">TODO</span> Write good commit messages</h4>
-<div class="outline-text-4" id="text-2-3-2">
+<div id="outline-container-orgab0c3a5" class="outline-4">
+<h4 id="orgab0c3a5"><span class="section-number-4">2.3.4</span> <span class="todo TODO">TODO</span> Write good commit messages</h4>
+<div class="outline-text-4" id="text-2-3-4">
 <ul class="org-ul">
 <li><a href="http://chris.beams.io/posts/git-commit/">http://chris.beams.io/posts/git-commit/</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org26fe0dd" class="outline-4">
-<h4 id="org26fe0dd"><span class="section-number-4">2.3.3</span> <span class="todo TODO">TODO</span> Write a good readme</h4>
-<div class="outline-text-4" id="text-2-3-3">
+<div id="outline-container-org9a6c451" class="outline-4">
+<h4 id="org9a6c451"><span class="section-number-4">2.3.5</span> <span class="todo TODO">TODO</span> Write a good readme</h4>
+<div class="outline-text-4" id="text-2-3-5">
 <p>
 <a href="https://github.com/LappleApple/feedmereadmes/blob/master/README-maturity-model.md">This github repo</a> contains a useful model of maturity levels for a
 project's README.md file. It defines both the current level of
@@ -540,30 +601,33 @@ maturity of a README and gives pointers on how to improve.
 </p>
 </div>
 </div>
-<div id="outline-container-org08081ae" class="outline-4">
-<h4 id="org08081ae"><span class="section-number-4">2.3.4</span> <span class="todo TODO">TODO</span> Set up your Git branches</h4>
-<div class="outline-text-4" id="text-2-3-4">
+<div id="outline-container-org68e06c6" class="outline-4">
+<h4 id="org68e06c6"><span class="section-number-4">2.3.6</span> <span class="todo TODO">TODO</span> Set up your Git branches</h4>
+<div class="outline-text-4" id="text-2-3-6">
 <ul class="org-ul">
 <li><b>Branching model</b>: <a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org166a73c" class="outline-4">
-<h4 id="org166a73c"><span class="section-number-4">2.3.5</span> <span class="todo TODO">TODO</span> Use module systems</h4>
+<div id="outline-container-org369bbf0" class="outline-4">
+<h4 id="org369bbf0"><span class="section-number-4">2.3.7</span> <span class="todo TODO">TODO</span> Use module systems</h4>
 </div>
-<div id="outline-container-org164116c" class="outline-4">
-<h4 id="org164116c"><span class="section-number-4">2.3.6</span> <span class="todo TODO">TODO</span> Set up travis CI</h4>
-<div class="outline-text-4" id="text-2-3-6">
+<div id="outline-container-org66bc248" class="outline-4">
+<h4 id="org66bc248"><span class="section-number-4">2.3.8</span> <span class="todo TODO">TODO</span> Set up travis CI</h4>
+<div class="outline-text-4" id="text-2-3-8">
 </div>
-<div id="outline-container-orgf45b29b" class="outline-5">
-<h5 id="orgf45b29b"><span class="section-number-5">2.3.6.1</span> C++17</h5>
-</div>
-<div id="outline-container-org4c6dbd8" class="outline-5">
-<h5 id="org4c6dbd8"><span class="section-number-5">2.3.6.2</span> travis.yml / Makefile</h5>
-</div>
+<ol class="org-ol">
+<li><a id="org0a02ab2"></a>C++17<br /></li>
+<li><a id="orgae16ae7"></a>travis.yml / Makefile<br /></li>
+</ol>
 </div>
 </div>
 </div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jan-Willem Buurlage, Allard Hendriksen</p>
+<p class="date">Created: 2018-11-13 Tue 15:37</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
