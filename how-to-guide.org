@@ -1,14 +1,7 @@
 #+TITLE: How-to Software Guide (CWI CI Group)
 #+AUTHOR: Jan-Willem Buurlage, Allard Hendriksen
-#+LANGUAGE: en
-#+OPTIONS: toc:nil h:4 html-postamble:nil html-preamble:t tex:t f:t
-#+OPTIONS: prop:("VERSION")
-#+HTML_DOCTYPE: <!DOCTYPE html>
-#+HTML_HEAD: <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
-#+HTML_HEAD: <link href="css/style.css" rel="stylesheet" type="text/css" />
-#+LaTeX_CLASS: book
 
-#+TOC: headlines 3
+#+OPTIONS: h:3
 
 * TODO Introduction
 * How-to
@@ -162,8 +155,17 @@ git push origin reverse_neutron_flow
 #+END_SRC
 
 Visit the project page on GitHub, and in the tab /Pull requests/ click on /New pull request/. For more information about pull requests, see https://help.github.com/articles/about-pull-requests/.
+*** Record an animated GIF of your screen
+For recording animated GIFs of a region of your screen, you can use peek
+<https://github.com/phw/peek>. The easiest way to get it to run on a CWI
+workstation is by using an AppImage of a recent release, which you can get from
+the releases page <https://github.com/phw/peek/releases>.
 
-
+After downloading, make the file executable (either using your file manager, or
+by calling =chmod +x [peek_release.AppImage]= from a terminal). Now you can run
+Peek, which has a straightforward interface: resize the Peek window and click on
+record, after three seconds it will start recording the region of your screen
+that is visible.
 *** TODO Write good documentation
 - http://stevelosh.com/blog/2013/09/teach-dont-tell/
 *** TODO Write good commit messages
