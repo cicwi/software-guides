@@ -106,6 +106,8 @@ To list all dynamic dependencies, use =ldd <binary>=
 
 See also: [[https://www.eyrie.org/~eagle/notes/rpath.html]].
 *** Create Python bindings using =pybind11=
+Author: /Jan-Willem Buurlage/
+
 Adding Python bindings to C++ code is straightforward with pybind11. A good
 setup is as follows. (All relative to the root folder of the C++ project, which
 I call =your_project= here)
@@ -159,6 +161,7 @@ add_subdirectory("python")
 Now, the python bindings will be built alongside your project.
 ** General
 *** Contribute to someone else's project
+Author: /Henri der Sarkissian/
 
 Having a common software repository helps us to share and use code from other members, but also contribute to them. This implies obtaining the source code (and not the compiled binaries or the conda package) from Github and commit the changes. Obviously, commiting changes comports a risk of introducing bug or unwanted features for the software. You should therefore commit your changes in a separate branch and open a pull request. After inspection, your changes will eventually be accepted and incorporated into the main branch. 
 Let us now describe this procedure step by step.
@@ -193,6 +196,8 @@ git push origin reverse_neutron_flow
 
 Visit the project page on GitHub, and in the tab /Pull requests/ click on /New pull request/. For more information about pull requests, see https://help.github.com/articles/about-pull-requests/.
 *** Record an animated GIF of your screen
+Author: /Jan-Willem Buurlage/
+
 For recording animated GIFs of a region of your screen, you can use Peek
 <https://github.com/phw/peek>. The easiest way to get it to run on a CWI
 workstation is by using an AppImage of a recent release, which you can get from
