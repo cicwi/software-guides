@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2018-11-13 Tue 15:37 -->
+<!-- 2018-11-21 Wed 11:58 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Software Release Guide (CWI CI Group)</title>
@@ -234,20 +234,20 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc769d5a">1. Introduction</a></li>
-<li><a href="#org3a686f5">2. Anatomy of a software project</a>
+<li><a href="#org90f486a">1. Introduction</a></li>
+<li><a href="#org9a6bd9c">2. Anatomy of a software project</a>
 <ul>
-<li><a href="#org7ac1e60">2.1. Update project structure</a></li>
-<li><a href="#org5ad6316">2.2. Add documentation</a></li>
-<li><a href="#org563e0dc">2.3. Add files for distribution</a></li>
-<li><a href="#org5d3caa6">2.4. Release the software</a></li>
-<li><a href="#orgd328bda">2.5. Further development</a></li>
-<li><a href="#org36663ea">2.6. Putting theory to practice: developing a Python a software package</a>
+<li><a href="#org2224caf">2.1. Update project structure</a></li>
+<li><a href="#org368a894">2.2. Add documentation</a></li>
+<li><a href="#org7e4bd55">2.3. Add files for distribution</a></li>
+<li><a href="#org89ec45d">2.4. Release the software</a></li>
+<li><a href="#org4af7414">2.5. Further development</a></li>
+<li><a href="#orge9bafde">2.6. Putting theory to practice: developing a Python a software package</a>
 <ul>
-<li><a href="#org0fea4b1">2.6.1. Set up software project structure</a></li>
-<li><a href="#org58ecc4c">2.6.2. Adding your code</a></li>
-<li><a href="#org679c186">2.6.3. Creating an initial release</a></li>
-<li><a href="#orgf1ab8bb">2.6.4. Further development</a></li>
+<li><a href="#org6b94054">2.6.1. Set up software project structure</a></li>
+<li><a href="#org92d1bd1">2.6.2. Adding your code</a></li>
+<li><a href="#org915238a">2.6.3. Creating an initial release</a></li>
+<li><a href="#org0a2cb65">2.6.4. Further development</a></li>
 </ul>
 </li>
 </ul>
@@ -256,8 +256,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgc769d5a" class="outline-2">
-<h2 id="orgc769d5a"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org90f486a" class="outline-2">
+<h2 id="org90f486a"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This document consists of two parts. In the first part, we suggest useful tools,
@@ -332,8 +332,8 @@ for yourself, to something others can also use.
 </p>
 </div>
 </div>
-<div id="outline-container-org3a686f5" class="outline-2">
-<h2 id="org3a686f5"><span class="section-number-2">2</span> Anatomy of a software project</h2>
+<div id="outline-container-org9a6bd9c" class="outline-2">
+<h2 id="org9a6bd9c"><span class="section-number-2">2</span> Anatomy of a software project</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Let us assume that you have developed an image reconstruction algorithm. You
@@ -376,8 +376,8 @@ steps can be automated.
 </p>
 </div>
 
-<div id="outline-container-org7ac1e60" class="outline-3">
-<h3 id="org7ac1e60"><span class="section-number-3">2.1</span> Update project structure</h3>
+<div id="outline-container-org2224caf" class="outline-3">
+<h3 id="org2224caf"><span class="section-number-3">2.1</span> Update project structure</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 First, we need to convert our code into a clean and predictable structure. The
@@ -413,8 +413,8 @@ statement from anywhere.
 </p>
 </div>
 </div>
-<div id="outline-container-org5ad6316" class="outline-3">
-<h3 id="org5ad6316"><span class="section-number-3">2.2</span> Add documentation</h3>
+<div id="outline-container-org368a894" class="outline-3">
+<h3 id="org368a894"><span class="section-number-3">2.2</span> Add documentation</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 There are two classes of documentation. First, there is usually a readme file
@@ -451,8 +451,8 @@ Sphinx to generate the documentation.
 </p>
 </div>
 </div>
-<div id="outline-container-org563e0dc" class="outline-3">
-<h3 id="org563e0dc"><span class="section-number-3">2.3</span> Add files for distribution</h3>
+<div id="outline-container-org7e4bd55" class="outline-3">
+<h3 id="org7e4bd55"><span class="section-number-3">2.3</span> Add files for distribution</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Next, you should allow yourself and your users to use your package by a simple
@@ -468,8 +468,8 @@ released under the GPL.
 </p>
 </div>
 </div>
-<div id="outline-container-org5d3caa6" class="outline-3">
-<h3 id="org5d3caa6"><span class="section-number-3">2.4</span> Release the software</h3>
+<div id="outline-container-org89ec45d" class="outline-3">
+<h3 id="org89ec45d"><span class="section-number-3">2.4</span> Release the software</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Releasing your software does not only mean that it is made available publicly.
@@ -503,8 +503,8 @@ it is a Python project, you can upload the new release to Anaconda and/or PyPI.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd328bda" class="outline-3">
-<h3 id="orgd328bda"><span class="section-number-3">2.5</span> Further development</h3>
+<div id="outline-container-org4af7414" class="outline-3">
+<h3 id="org4af7414"><span class="section-number-3">2.5</span> Further development</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Now that your software is out in the public, making big changes to your software
@@ -525,8 +525,8 @@ is increased.
 </p>
 </div>
 </div>
-<div id="outline-container-org36663ea" class="outline-3">
-<h3 id="org36663ea"><span class="section-number-3">2.6</span> Putting theory to practice: developing a Python a software package</h3>
+<div id="outline-container-orge9bafde" class="outline-3">
+<h3 id="orge9bafde"><span class="section-number-3">2.6</span> Putting theory to practice: developing a Python a software package</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Instead of performing all the steps outlined above manually, the easiest way to
@@ -535,8 +535,8 @@ provide.
 </p>
 </div>
 
-<div id="outline-container-org0fea4b1" class="outline-4">
-<h4 id="org0fea4b1"><span class="section-number-4">2.6.1</span> Set up software project structure</h4>
+<div id="outline-container-org6b94054" class="outline-4">
+<h4 id="org6b94054"><span class="section-number-4">2.6.1</span> Set up software project structure</h4>
 <div class="outline-text-4" id="text-2-6-1">
 <p>
 First, install <code>cookiecutter</code>.
@@ -580,8 +580,8 @@ dependencies by running the following command.
 </div>
 </div>
 </div>
-<div id="outline-container-org58ecc4c" class="outline-4">
-<h4 id="org58ecc4c"><span class="section-number-4">2.6.2</span> Adding your code</h4>
+<div id="outline-container-org92d1bd1" class="outline-4">
+<h4 id="org92d1bd1"><span class="section-number-4">2.6.2</span> Adding your code</h4>
 <div class="outline-text-4" id="text-2-6-2">
 <p>
 Now that everything is set up, we are ready to copy your code into the project.
@@ -602,8 +602,8 @@ usage of your library.
 </p>
 </div>
 </div>
-<div id="outline-container-org679c186" class="outline-4">
-<h4 id="org679c186"><span class="section-number-4">2.6.3</span> Creating an initial release</h4>
+<div id="outline-container-org915238a" class="outline-4">
+<h4 id="org915238a"><span class="section-number-4">2.6.3</span> Creating an initial release</h4>
 <div class="outline-text-4" id="text-2-6-3">
 <p>
 Creating an initial release of your software consists of a number of simple
@@ -655,8 +655,8 @@ This will provide potential users with an easy way to install your software.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf1ab8bb" class="outline-4">
-<h4 id="orgf1ab8bb"><span class="section-number-4">2.6.4</span> Further development</h4>
+<div id="outline-container-org0a2cb65" class="outline-4">
+<h4 id="org0a2cb65"><span class="section-number-4">2.6.4</span> Further development</h4>
 <div class="outline-text-4" id="text-2-6-4">
 <p>
 As time progresses, you will most likely continue the development of your

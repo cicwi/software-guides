@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-11-13 Tue 15:37 -->
+<!-- 2018-11-21 Wed 11:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How-to Software Guide (CWI CI Group)</title>
@@ -234,33 +234,34 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbfb8e87">1. <span class="todo TODO">TODO</span> Introduction</a></li>
-<li><a href="#org1d5efb5">2. How-to</a>
+<li><a href="#orgeef2944">1. <span class="todo TODO">TODO</span> Introduction</a></li>
+<li><a href="#org557f0a5">2. How-to</a>
 <ul>
-<li><a href="#org500a1d6">2.1. Python</a>
+<li><a href="#orgd2d138a">2.1. Python</a>
 <ul>
-<li><a href="#orga657a79">2.1.1. <span class="todo TODO">TODO</span> Auto-format your code</a></li>
+<li><a href="#org1b944f2">2.1.1. <span class="todo TODO">TODO</span> Auto-format your code</a></li>
+<li><a href="#org9a4c505">2.1.2. Call MATLAB from Python</a></li>
 </ul>
 </li>
-<li><a href="#org81d99f7">2.2. C++</a>
+<li><a href="#orge8b045c">2.2. C++</a>
 <ul>
-<li><a href="#org7fc7f9f">2.2.1. <span class="todo TODO">TODO</span> Auto-format your code</a></li>
-<li><a href="#org06ad6ef">2.2.2. <span class="todo TODO">TODO</span> Use CMake to build your software</a></li>
-<li><a href="#org2d1cd10">2.2.3. <span class="todo TODO">TODO</span> Use a good set of compile commands</a></li>
-<li><a href="#org06eb635">2.2.4. <span class="todo TODO">TODO</span> Manage dynamic dependencies</a></li>
-<li><a href="#orgdb22724">2.2.5. Create Python bindings using <code>pybind11</code></a></li>
+<li><a href="#org089e0f8">2.2.1. <span class="todo TODO">TODO</span> Auto-format your code</a></li>
+<li><a href="#org32f8ebc">2.2.2. <span class="todo TODO">TODO</span> Use CMake to build your software</a></li>
+<li><a href="#orgf3d21d6">2.2.3. <span class="todo TODO">TODO</span> Use a good set of compile commands</a></li>
+<li><a href="#org8eb7931">2.2.4. <span class="todo TODO">TODO</span> Manage dynamic dependencies</a></li>
+<li><a href="#orgc76560f">2.2.5. Create Python bindings using <code>pybind11</code></a></li>
 </ul>
 </li>
-<li><a href="#org8ae16a7">2.3. General</a>
+<li><a href="#org566746d">2.3. General</a>
 <ul>
-<li><a href="#orgcbea62b">2.3.1. Contribute to someone else's project</a></li>
-<li><a href="#orgd08128b">2.3.2. Record an animated GIF of your screen</a></li>
-<li><a href="#orge8f3a4c">2.3.3. <span class="todo TODO">TODO</span> Write good documentation</a></li>
-<li><a href="#orgab0c3a5">2.3.4. <span class="todo TODO">TODO</span> Write good commit messages</a></li>
-<li><a href="#org9a6c451">2.3.5. <span class="todo TODO">TODO</span> Write a good readme</a></li>
-<li><a href="#org68e06c6">2.3.6. <span class="todo TODO">TODO</span> Set up your Git branches</a></li>
-<li><a href="#org369bbf0">2.3.7. <span class="todo TODO">TODO</span> Use module systems</a></li>
-<li><a href="#org66bc248">2.3.8. <span class="todo TODO">TODO</span> Set up travis CI</a></li>
+<li><a href="#org36a9e1c">2.3.1. Contribute to someone else's project</a></li>
+<li><a href="#org3c574db">2.3.2. Record an animated GIF of your screen</a></li>
+<li><a href="#org310f4e8">2.3.3. <span class="todo TODO">TODO</span> Write good documentation</a></li>
+<li><a href="#orgb664321">2.3.4. <span class="todo TODO">TODO</span> Write good commit messages</a></li>
+<li><a href="#org30ea27f">2.3.5. <span class="todo TODO">TODO</span> Write a good readme</a></li>
+<li><a href="#org424902f">2.3.6. <span class="todo TODO">TODO</span> Set up your Git branches</a></li>
+<li><a href="#org25a35ed">2.3.7. <span class="todo TODO">TODO</span> Use module systems</a></li>
+<li><a href="#orgac85d89">2.3.8. <span class="todo TODO">TODO</span> Set up travis CI</a></li>
 </ul>
 </li>
 </ul>
@@ -269,49 +270,110 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgbfb8e87" class="outline-2">
-<h2 id="orgbfb8e87"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> Introduction</h2>
+<div id="outline-container-orgeef2944" class="outline-2">
+<h2 id="orgeef2944"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> Introduction</h2>
 </div>
-<div id="outline-container-org1d5efb5" class="outline-2">
-<h2 id="org1d5efb5"><span class="section-number-2">2</span> How-to</h2>
+<div id="outline-container-org557f0a5" class="outline-2">
+<h2 id="org557f0a5"><span class="section-number-2">2</span> How-to</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org500a1d6" class="outline-3">
-<h3 id="org500a1d6"><span class="section-number-3">2.1</span> Python</h3>
+<div id="outline-container-orgd2d138a" class="outline-3">
+<h3 id="orgd2d138a"><span class="section-number-3">2.1</span> Python</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orga657a79" class="outline-4">
-<h4 id="orga657a79"><span class="section-number-4">2.1.1</span> <span class="todo TODO">TODO</span> Auto-format your code</h4>
+<div id="outline-container-org1b944f2" class="outline-4">
+<h4 id="org1b944f2"><span class="section-number-4">2.1.1</span> <span class="todo TODO">TODO</span> Auto-format your code</h4>
 <div class="outline-text-4" id="text-2-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="orgccfd465"></a>PEP8<br /></li>
-<li><a id="orgfd9b6f3"></a><a href="https://github.com/google/yapf">yapf</a><br /></li>
+<li><a id="org619757c"></a>PEP8<br /></li>
+<li><a id="orgdf2c457"></a><a href="https://github.com/google/yapf">yapf</a><br /></li>
 </ol>
 </div>
+<div id="outline-container-org9a4c505" class="outline-4">
+<h4 id="org9a4c505"><span class="section-number-4">2.1.2</span> Call MATLAB from Python</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Author: <i>Jan-Willem Buurlage</i>
+</p>
+
+<p>
+To install the MATLAB engine wrapper for Python for a Conda environment on your
+CWI workstation, run the following commands:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">conda create -n matlab <span style="font-weight: bold; font-style: italic;">python</span>=3.6
+conda activate matlab
+<span style="font-weight: bold;">cd</span> /opt/sw/matlab-YYYYx/extern/engines/python
+python setup.py build --build-base=<span style="font-style: italic;">"/tmp"</span> install 
+</pre>
 </div>
-<div id="outline-container-org81d99f7" class="outline-3">
-<h3 id="org81d99f7"><span class="section-number-3">2.2</span> C++</h3>
+<p>
+Now, you can call MATLAB functions from Python:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">import</span> matlab.engine
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">start the MATLAB program (which takes a long time)</span>
+<span style="font-weight: bold; font-style: italic;">eng</span> = matlab.engine.start_matlab()
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">alternative: start asynchronously</span>
+<span style="font-weight: bold; font-style: italic;">future</span> = matlab.engine.start_matlab(async=<span style="font-weight: bold; text-decoration: underline;">True</span>)
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">... other Python code</span>
+<span style="font-weight: bold; font-style: italic;">eng</span> = future.result()
+</pre>
+</div>
+<p>
+You can call your own MATLAB scripts (<code>.m</code> files in the same folder), such as
+the following <code>triarea.m</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-octave"><span style="font-weight: bold;">function</span> a <span style="font-weight: bold;">=</span> <span style="font-weight: bold;">triarea</span>(b<span style="font-weight: bold;">,</span>h)
+a <span style="font-weight: bold;">=</span> 0.5<span style="font-weight: bold;">*</span>(b<span style="font-weight: bold;">.*</span> h)<span style="font-weight: bold;">;</span>
+</pre>
+</div>
+<p>
+from Python using:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">x</span> = eng.triarea(1.5, 3.5)
+</pre>
+</div>
+<p>
+For conversions between arrays and MATLAB, see <a href="https://nl.mathworks.com/help/matlab/matlab_external/matlab-arrays-as-python-variables.html">the MATLAB Python API docs</a>.
+</p>
+
+<p>
+See also:
+</p>
+<ul class="org-ul">
+<li><a href="https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html">Installation documentation from MathWorks</a></li>
+<li><a href="https://www.mathworks.com/help/matlab/matlab_external/call-user-script-and-function-from-python.html">Calling user scripts from Python</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orge8b045c" class="outline-3">
+<h3 id="orge8b045c"><span class="section-number-3">2.2</span> C++</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org7fc7f9f" class="outline-4">
-<h4 id="org7fc7f9f"><span class="section-number-4">2.2.1</span> <span class="todo TODO">TODO</span> Auto-format your code</h4>
+<div id="outline-container-org089e0f8" class="outline-4">
+<h4 id="org089e0f8"><span class="section-number-4">2.2.1</span> <span class="todo TODO">TODO</span> Auto-format your code</h4>
 <div class="outline-text-4" id="text-2-2-1">
 </div>
 <ol class="org-ol">
-<li><a id="org14fc9e3"></a><code>clang-format</code><br /></li>
+<li><a id="orgc5d557d"></a><code>clang-format</code><br /></li>
 </ol>
 </div>
-<div id="outline-container-org06ad6ef" class="outline-4">
-<h4 id="org06ad6ef"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> Use CMake to build your software</h4>
+<div id="outline-container-org32f8ebc" class="outline-4">
+<h4 id="org32f8ebc"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> Use CMake to build your software</h4>
 <div class="outline-text-4" id="text-2-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="org8bead2f"></a>C++ Weekly, <a href="https://www.youtube.com/watch?v=HPMvU64RUTY">Intro to CMake</a><br /></li>
-<li><a id="orge59d51c"></a><a href="https://llvm.org/docs/CMakePrimer.html">CMakePrimer (LLVM)</a><br /></li>
-<li><a id="org5796a31"></a><a href="https://www.youtube.com/watch?v=eC9-iRN2b04">CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”</a><br /></li>
-<li><a id="org6db3b3d"></a><a href="https://www.youtube.com/watch?v=bsXLMQ6WgIk">C++Now 2017: Daniel Pfeifer “Effective CMake"</a><br /></li>
-<li><a id="orgdb14e33"></a><a href="https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html">Dependency management CMake/Git</a><br />
+<li><a id="org329e767"></a>C++ Weekly, <a href="https://www.youtube.com/watch?v=HPMvU64RUTY">Intro to CMake</a><br /></li>
+<li><a id="org385b1bc"></a><a href="https://llvm.org/docs/CMakePrimer.html">CMakePrimer (LLVM)</a><br /></li>
+<li><a id="org67cfc75"></a><a href="https://www.youtube.com/watch?v=eC9-iRN2b04">CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”</a><br /></li>
+<li><a id="org205991e"></a><a href="https://www.youtube.com/watch?v=bsXLMQ6WgIk">C++Now 2017: Daniel Pfeifer “Effective CMake"</a><br /></li>
+<li><a id="orge55bd10"></a><a href="https://foonathan.net/blog/2016/07/07/cmake-dependency-handling.html">Dependency management CMake/Git</a><br />
 <div class="outline-text-5" id="text-2-2-2-5">
 <p>
 Example:
@@ -342,26 +404,26 @@ endif()
 </div>
 </div>
 </li>
-<li><a id="org8f7e377"></a><a href="https://foonathan.net/blog/2018/10/17/cmake-warnings.html">https://foonathan.net/blog/2018/10/17/cmake-warnings.html</a><br /></li>
+<li><a id="orge081a08"></a><a href="https://foonathan.net/blog/2018/10/17/cmake-warnings.html">https://foonathan.net/blog/2018/10/17/cmake-warnings.html</a><br /></li>
 </ol>
 </div>
-<div id="outline-container-org2d1cd10" class="outline-4">
-<h4 id="org2d1cd10"><span class="section-number-4">2.2.3</span> <span class="todo TODO">TODO</span> Use a good set of compile commands</h4>
+<div id="outline-container-orgf3d21d6" class="outline-4">
+<h4 id="orgf3d21d6"><span class="section-number-4">2.2.3</span> <span class="todo TODO">TODO</span> Use a good set of compile commands</h4>
 <div class="outline-text-4" id="text-2-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="org36e819b"></a>Sensible compile flags<br />
+<li><a id="org712d20c"></a>Sensible compile flags<br />
 <ol class="org-ol">
-<li><a id="org0c89ded"></a><code>-Wall</code><br /></li>
-<li><a id="orgc09d21b"></a><code>-Werror</code><br /></li>
-<li><a id="org7a98ea3"></a><code>-Wfatal</code><br /></li>
-<li><a id="org8c14557"></a>&#x2026;<br /></li>
+<li><a id="org7001a62"></a><code>-Wall</code><br /></li>
+<li><a id="org38ffb8f"></a><code>-Werror</code><br /></li>
+<li><a id="org4a3dfda"></a><code>-Wfatal</code><br /></li>
+<li><a id="orge877e4e"></a>&#x2026;<br /></li>
 </ol>
 </li>
 </ol>
 </div>
-<div id="outline-container-org06eb635" class="outline-4">
-<h4 id="org06eb635"><span class="section-number-4">2.2.4</span> <span class="todo TODO">TODO</span> Manage dynamic dependencies</h4>
+<div id="outline-container-org8eb7931" class="outline-4">
+<h4 id="org8eb7931"><span class="section-number-4">2.2.4</span> <span class="todo TODO">TODO</span> Manage dynamic dependencies</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <p>
 Three places that a binary looks for shared dependencies
@@ -401,9 +463,13 @@ See also: <a href="https://www.eyrie.org/~eagle/notes/rpath.html">https://www.ey
 </p>
 </div>
 </div>
-<div id="outline-container-orgdb22724" class="outline-4">
-<h4 id="orgdb22724"><span class="section-number-4">2.2.5</span> Create Python bindings using <code>pybind11</code></h4>
+<div id="outline-container-orgc76560f" class="outline-4">
+<h4 id="orgc76560f"><span class="section-number-4">2.2.5</span> Create Python bindings using <code>pybind11</code></h4>
 <div class="outline-text-4" id="text-2-2-5">
+<p>
+Author: <i>Jan-Willem Buurlage</i>
+</p>
+
 <p>
 Adding Python bindings to C++ code is straightforward with pybind11. A good
 setup is as follows. (All relative to the root folder of the C++ project, which
@@ -411,7 +477,7 @@ I call <code>your_project</code> here)
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgc4798c7"></a>Add pybind11 as a git submodule<br />
+<li><a id="orgc3dd807"></a>Add pybind11 as a git submodule<br />
 <div class="outline-text-5" id="text-2-2-5-1">
 <div class="org-src-container">
 <pre class="src src-bash">git submodule add https://github.com/pybind/pybind11.git ext/pybind11
@@ -419,14 +485,14 @@ I call <code>your_project</code> here)
 </div>
 </div>
 </li>
-<li><a id="org4275713"></a>Set up the Python bindings<br />
+<li><a id="org34c3af4"></a>Set up the Python bindings<br />
 <div class="outline-text-5" id="text-2-2-5-2">
 <p>
 Make a directory <code>python</code>, containing at least three files:
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgfc798c4"></a><code>python/src/module.cpp</code><br />
+<li><a id="orgd786a11"></a><code>python/src/module.cpp</code><br />
 <div class="outline-text-6" id="text-2-2-5-2-1">
 <p>
 This contains the actual bindings, an example is like this:
@@ -448,7 +514,7 @@ This contains the actual bindings, an example is like this:
 </div>
 </div>
 </li>
-<li><a id="orgdcb1724"></a><code>python/your_project/__init__.py</code><br />
+<li><a id="org4862325"></a><code>python/your_project/__init__.py</code><br />
 <div class="outline-text-6" id="text-2-2-5-2-2">
 <p>
 The entry point for the Python specific code of your project. Also reexports
@@ -460,7 +526,7 @@ symbols from the generated bindings.
 </div>
 </div>
 </li>
-<li><a id="orge03c0ab"></a><code>python/CMakeLists.txt</code><br />
+<li><a id="org51a2d76"></a><code>python/CMakeLists.txt</code><br />
 <div class="outline-text-6" id="text-2-2-5-2-3">
 <p>
 You can build the bindings using CMake.
@@ -480,7 +546,7 @@ target_link_libraries(${BINDING_NAME} PRIVATE your_project)
 </li>
 </ol>
 </li>
-<li><a id="orgfb359c9"></a>Add it as a subdirectory<br />
+<li><a id="orga455725"></a>Add it as a subdirectory<br />
 <div class="outline-text-5" id="text-2-2-5-3">
 <p>
 In the main <code>CMakeLists.txt</code> of your project, add the Python folder:
@@ -499,13 +565,17 @@ Now, the python bindings will be built alongside your project.
 </ol>
 </div>
 </div>
-<div id="outline-container-org8ae16a7" class="outline-3">
-<h3 id="org8ae16a7"><span class="section-number-3">2.3</span> General</h3>
+<div id="outline-container-org566746d" class="outline-3">
+<h3 id="org566746d"><span class="section-number-3">2.3</span> General</h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-orgcbea62b" class="outline-4">
-<h4 id="orgcbea62b"><span class="section-number-4">2.3.1</span> Contribute to someone else's project</h4>
+<div id="outline-container-org36a9e1c" class="outline-4">
+<h4 id="org36a9e1c"><span class="section-number-4">2.3.1</span> Contribute to someone else's project</h4>
 <div class="outline-text-4" id="text-2-3-1">
+<p>
+Author: <i>Henri der Sarkissian</i>
+</p>
+
 <p>
 Having a common software repository helps us to share and use code from other members, but also contribute to them. This implies obtaining the source code (and not the compiled binaries or the conda package) from Github and commit the changes. Obviously, commiting changes comports a risk of introducing bug or unwanted features for the software. You should therefore commit your changes in a separate branch and open a pull request. After inspection, your changes will eventually be accepted and incorporated into the main branch. 
 Let us now describe this procedure step by step.
@@ -556,11 +626,15 @@ Visit the project page on GitHub, and in the tab <i>Pull requests</i> click on <
 </p>
 </div>
 </div>
-<div id="outline-container-orgd08128b" class="outline-4">
-<h4 id="orgd08128b"><span class="section-number-4">2.3.2</span> Record an animated GIF of your screen</h4>
+<div id="outline-container-org3c574db" class="outline-4">
+<h4 id="org3c574db"><span class="section-number-4">2.3.2</span> Record an animated GIF of your screen</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
-For recording animated GIFs of a region of your screen, you can use peek
+Author: <i>Jan-Willem Buurlage</i>
+</p>
+
+<p>
+For recording animated GIFs of a region of your screen, you can use Peek
 <a href="https://github.com/phw/peek">https://github.com/phw/peek</a>. The easiest way to get it to run on a CWI
 workstation is by using an AppImage of a recent release, which you can get from
 the releases page <a href="https://github.com/phw/peek/releases">https://github.com/phw/peek/releases</a>.
@@ -575,24 +649,24 @@ that is visible.
 </p>
 </div>
 </div>
-<div id="outline-container-orge8f3a4c" class="outline-4">
-<h4 id="orge8f3a4c"><span class="section-number-4">2.3.3</span> <span class="todo TODO">TODO</span> Write good documentation</h4>
+<div id="outline-container-org310f4e8" class="outline-4">
+<h4 id="org310f4e8"><span class="section-number-4">2.3.3</span> <span class="todo TODO">TODO</span> Write good documentation</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <ul class="org-ul">
 <li><a href="http://stevelosh.com/blog/2013/09/teach-dont-tell/">http://stevelosh.com/blog/2013/09/teach-dont-tell/</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgab0c3a5" class="outline-4">
-<h4 id="orgab0c3a5"><span class="section-number-4">2.3.4</span> <span class="todo TODO">TODO</span> Write good commit messages</h4>
+<div id="outline-container-orgb664321" class="outline-4">
+<h4 id="orgb664321"><span class="section-number-4">2.3.4</span> <span class="todo TODO">TODO</span> Write good commit messages</h4>
 <div class="outline-text-4" id="text-2-3-4">
 <ul class="org-ul">
 <li><a href="http://chris.beams.io/posts/git-commit/">http://chris.beams.io/posts/git-commit/</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9a6c451" class="outline-4">
-<h4 id="org9a6c451"><span class="section-number-4">2.3.5</span> <span class="todo TODO">TODO</span> Write a good readme</h4>
+<div id="outline-container-org30ea27f" class="outline-4">
+<h4 id="org30ea27f"><span class="section-number-4">2.3.5</span> <span class="todo TODO">TODO</span> Write a good readme</h4>
 <div class="outline-text-4" id="text-2-3-5">
 <p>
 <a href="https://github.com/LappleApple/feedmereadmes/blob/master/README-maturity-model.md">This github repo</a> contains a useful model of maturity levels for a
@@ -601,24 +675,24 @@ maturity of a README and gives pointers on how to improve.
 </p>
 </div>
 </div>
-<div id="outline-container-org68e06c6" class="outline-4">
-<h4 id="org68e06c6"><span class="section-number-4">2.3.6</span> <span class="todo TODO">TODO</span> Set up your Git branches</h4>
+<div id="outline-container-org424902f" class="outline-4">
+<h4 id="org424902f"><span class="section-number-4">2.3.6</span> <span class="todo TODO">TODO</span> Set up your Git branches</h4>
 <div class="outline-text-4" id="text-2-3-6">
 <ul class="org-ul">
 <li><b>Branching model</b>: <a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org369bbf0" class="outline-4">
-<h4 id="org369bbf0"><span class="section-number-4">2.3.7</span> <span class="todo TODO">TODO</span> Use module systems</h4>
+<div id="outline-container-org25a35ed" class="outline-4">
+<h4 id="org25a35ed"><span class="section-number-4">2.3.7</span> <span class="todo TODO">TODO</span> Use module systems</h4>
 </div>
-<div id="outline-container-org66bc248" class="outline-4">
-<h4 id="org66bc248"><span class="section-number-4">2.3.8</span> <span class="todo TODO">TODO</span> Set up travis CI</h4>
+<div id="outline-container-orgac85d89" class="outline-4">
+<h4 id="orgac85d89"><span class="section-number-4">2.3.8</span> <span class="todo TODO">TODO</span> Set up travis CI</h4>
 <div class="outline-text-4" id="text-2-3-8">
 </div>
 <ol class="org-ol">
-<li><a id="org0a02ab2"></a>C++17<br /></li>
-<li><a id="orgae16ae7"></a>travis.yml / Makefile<br /></li>
+<li><a id="org3f74df1"></a>C++17<br /></li>
+<li><a id="org32344a3"></a>travis.yml / Makefile<br /></li>
 </ol>
 </div>
 </div>
@@ -626,7 +700,7 @@ maturity of a README and gives pointers on how to improve.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jan-Willem Buurlage, Allard Hendriksen</p>
-<p class="date">Created: 2018-11-13 Tue 15:37</p>
+<p class="date">Created: 2018-11-21 Wed 11:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
