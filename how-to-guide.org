@@ -9,6 +9,43 @@
 *** TODO Auto-format your code
 **** PEP8
 **** [[https://github.com/google/yapf][yapf]]
+*** Call MATLAB from Python
+Author: /Jan-Willem Buurlage/
+
+To install the MATLAB engine wrapper for Python for a Conda environment on your
+CWI workstation, run the following commands:
+#+BEGIN_SRC bash
+conda create -n matlab python=3.6
+conda activate matlab
+cd /opt/sw/matlab-YYYYx/extern/engines/python
+python setup.py build --build-base="/tmp" install 
+#+END_SRC
+Now, you can call MATLAB functions from Python:
+#+BEGIN_SRC python
+import matlab.engine
+
+# start the MATLAB program (which takes a long time)
+eng = matlab.engine.start_matlab()
+# alternative: start asynchronously
+future = matlab.engine.start_matlab(async=True)
+# ... other Python code
+eng = future.result()
+#+END_SRC
+You can call your own MATLAB scripts (=.m= files in the same folder), such as
+the following =triarea.m=:
+#+BEGIN_SRC octave
+function a = triarea(b,h)
+a = 0.5*(b.* h);
+#+END_SRC
+from Python using:
+#+BEGIN_SRC python
+x = eng.triarea(1.5, 3.5)
+#+END_SRC
+For conversions between arrays and MATLAB, see [[https://nl.mathworks.com/help/matlab/matlab_external/matlab-arrays-as-python-variables.html][the MATLAB Python API docs]].
+
+See also:
+- [[https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html][Installation documentation from MathWorks]]
+- [[https://www.mathworks.com/help/matlab/matlab_external/call-user-script-and-function-from-python.html][Calling user scripts from Python]]
 ** C++
 *** TODO Auto-format your code
 **** =clang-format=
