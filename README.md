@@ -10,11 +10,11 @@ development.
 ### Software release guide
 
 The _CICWI Software Release Guide_ can be viewed
-[online](https://cicwi.github.io/software-guidelines/software-release-guide), as
+[online](https://cicwi.github.io/software-guides/software-release-guide), as
 a
-[pdf](https://github.com/cicwi/software-guidelines/raw/master/docs/software-release-guide.pdf),
+[pdf](https://github.com/cicwi/software-guides/raw/master/docs/software-release-guide.pdf),
 or you can look at the
-[`org`](https://github.com/cicwi/software-guidelines/raw/master/software-release-guide.org)
+[`org`](https://github.com/cicwi/software-guides/raw/master/software-release-guide.org)
 source.
 
 It is a step-by-step guide for converting an arbitrary software project into a
@@ -25,10 +25,10 @@ software.
 ### How-to guide
 
 The _CICWI How-to Software Guide_ can be viewed
-[online](https://cicwi.github.io/software-guidelines/how-to-guide), as a
-[pdf](https://github.com/cicwi/software-guidelines/raw/master/docs/how-to-guide.pdf),
+[online](https://cicwi.github.io/software-guides/how-to-guide), as a
+[pdf](https://github.com/cicwi/software-guides/raw/master/docs/how-to-guide.pdf),
 or you can look at the
-[`org`](https://github.com/cicwi/software-guidelines/raw/master/how-to-guide.org)
+[`org`](https://github.com/cicwi/software-guides/raw/master/how-to-guide.org)
 source.
 
 This (living) document is a collection of small, self-contained tutorials to
